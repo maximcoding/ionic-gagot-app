@@ -5,7 +5,7 @@ import {environment} from '../environments/environment';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
