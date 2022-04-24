@@ -8,14 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   loginType = 1;
   showPassword = false;
-  selectedCountryCode = '+33';
+  selectedCountryCode = '🇫🇷 +33';
   phoneNumber: number;
 
   contryCode = [
-    { countryName: 'Israel', code: '+972', img: 'assets/flag/ISRAEL.jpeg' },
-    { countryName: 'FRANCE', code: '+33', img: 'assets/flag/FRANCE.png' },
-
-    { countryName: 'USA', code: '+1', img: 'assets/flag/USA.png' },
+    { countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg' },
+    { countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png' },
+    { countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png' },
   ];
 
   constructor() {}

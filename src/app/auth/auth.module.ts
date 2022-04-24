@@ -14,6 +14,7 @@ import { OtpComponent } from './components/otp/otp.component';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { SharedModule } from '../shared/shared.module';
     MatInputModule,
     TranslateModule,
     SharedModule,
+    NgxMaskModule.forRoot()
   ],
   declarations: [AuthPage, LoginComponent, SignupComponent, OtpComponent],
 })

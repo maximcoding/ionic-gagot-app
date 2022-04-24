@@ -1,25 +1,23 @@
 <ion-content>
   <ion-grid class="ion-padding">
     <ion-row *ngIf="loginType == 1" class="top-padding">
+
+      <ion-col class="ion-padding-top ion-text-center" size="12">
+        <ion-text class="SFPROM20">{{
+          "Login_to_Account" | translate
+        }}</ion-text>
+      </ion-col>
       <ion-col size="12" class="ion-text-center ion-padding-top">
         <ion-img
           class="image-css"
           src="../../../../assets/images/home_key_icon 1.png"
         ></ion-img>
       </ion-col>
-      <ion-col class="ion-padding-top ion-text-center" size="12">
-        <ion-text class="SFPROM20">{{
-          "Login_to_Account" | translate
-        }}</ion-text>
-      </ion-col>
-
       <ion-col class="ion-padding-top" size="4">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>{{ "Country" | translate }}</mat-label>
           <mat-select [(ngModel)]="selectedCountryCode">
             <mat-option *ngFor="let contry of contryCode" [value]="contry.code">
-              <img height="10px" [src]="contry.img" alt="" />
-              &nbsp;
               {{ contry.code }}
             </mat-option>
           </mat-select>
@@ -29,9 +27,10 @@
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>{{ "Phone-Number" | translate }}</mat-label>
           <input
-            type="password"
+            type="text"
+            mask="(0000) 000 000"
             (keypress)="numberOnly($event)"
-            maxlength="10"
+            maxlength="14"
             matInput
             placeholder="XXXX XXX XXX"
           />

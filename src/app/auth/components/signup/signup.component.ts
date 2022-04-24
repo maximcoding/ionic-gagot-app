@@ -12,13 +12,12 @@ export class SignupComponent implements OnInit {
   showPassword = false;
   signUpType = 1;
   showConfirmPassword = false;
-  selectedCountryCode: any;
+  selectedCountryCode = '🇫🇷 +33';
 
   contryCode = [
-    { countryName: 'Israel', code: '+972', img: 'assets/flag/ISRAEL.jpeg' },
-    { countryName: 'FRANCE', code: '+33', img: 'assets/flag/FRANCE.png' },
-
-    { countryName: 'USA', code: '+1', img: 'assets/flag/USA.png' },
+    { countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg' },
+    { countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png' },
+    { countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png' },
   ];
 
   registrationForm = new FormGroup({
