@@ -1,10 +1,14 @@
-<ion-content>
-  <ion-grid class="ion-padding">
-    <ion-row class="top-padding">
-      <ion-col size="12" size-md="4" offset-md="4">
-        <ion-text class="SFPROM20">{{
-          "Verify_your_Phone_Number" | translate
-        }}</ion-text>
+<ion-content [fullscreen]="true">
+
+  <ion-grid class="ion-padding full-width full-height">
+
+    <mx-brand-logo-title class="flex-auto" [title]="'LOGIN_TO_ACCOUNT' | translate"></mx-brand-logo-title>
+
+
+    <ion-row>
+      <ion-col size="12">
+        <mx-text [title]="'VERIFY_YOUR_PHONE_NUMBER' | translate" [type]="'title'">
+        </mx-text>
       </ion-col>
     </ion-row>
 
@@ -82,12 +86,17 @@
           </ion-col>
 
           <ion-col size="12" class="ion-text-center ion-padding-top">
-            <ion-button class="btn-css" routerLink="/tabs">{{
-              "Submit" | translate
-            }}</ion-button>
+            <ion-button
+              routerLink="/tabs"
+              size="large"
+              expand="block">
+              {{'SUBMIT' | translate}}
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
+
   </ion-grid>
+
 </ion-content>

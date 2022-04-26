@@ -1,115 +1,65 @@
-<ion-content>
-  <ion-grid class="ion-padding">
-    <ion-row *ngIf="loginType == 1" class="top-padding">
+<ion-content [fullscreen]="true">
 
-      <ion-col class="ion-padding-top ion-text-center" size="12">
-        <ion-text class="SFPROM20">{{
-          "Login_to_Account" | translate
-        }}</ion-text>
-      </ion-col>
-      <ion-col size="12" class="ion-text-center ion-padding-top">
-        <ion-img
-          class="image-css"
-          src="../../../../assets/images/home_key_icon 1.png"
-        ></ion-img>
-      </ion-col>
-      <ion-col class="ion-padding-top" size="4">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>{{ "Country" | translate }}</mat-label>
-          <mat-select [(ngModel)]="selectedCountryCode">
-            <mat-option *ngFor="let contry of contryCode" [value]="contry.code">
-              {{ contry.code }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </ion-col>
-      <ion-col class="ion-padding-top" size="8">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>{{ "Phone-Number" | translate }}</mat-label>
-          <input
-            type="text"
-            mask="(0000) 000 000"
-            (keypress)="numberOnly($event)"
-            maxlength="14"
-            matInput
-            placeholder="XXXX XXX XXX"
-          />
-        </mat-form-field>
-      </ion-col>
+  <ion-grid class="ion-padding full-width full-height flex-column">
 
-      <ion-col size="12" class="ion-text-center ion-padding-top">
-        <ion-button class="btn-css" routerLink="/auth/otp">{{
-          "Sign_In" | translate
-        }}</ion-button>
-      </ion-col>
+    <mx-brand-logo-title class="" [title]="'LOGIN_TO_ACCOUNT' | translate"></mx-brand-logo-title>
 
-      <ion-col size="12" class="ion-text-center SFPROM15 ion-padding-top">
-        {{ "OR" | translate }}
+    <ion-row *ngIf="loginType == 1" class="fields-wrapper flex-column ion-padding-top ion-padding-bottom">
+      <mx-phone-input class=""></mx-phone-input>
+    </ion-row>
+
+    <ion-row *ngIf="loginType == 2" class="fields-wrapper flex-column ion-padding-top ion-padding-bottom">
+      <ion-row class="flex-row">
+        <ion-col class="flex-auto ion-padding-top" size="12">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>{{ "EMAIL_ADDRESS" | translate }}</mat-label>
+            <input matInput placeholder="{{'EMAIL_ADDRESS' | translate}}"/>
+          </mat-form-field>
+        </ion-col>
+        <ion-col class="flex-auto" size="12">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>{{ "PASSWORD" | translate }}</mat-label>
+            <input placeholder="{{'PASSWORD' | translate}}" [type]="showPassword ? 'text' : 'password'" matInput/>
+            <mat-icon *ngIf="!showPassword" (click)="toggleShow()" matSuffix></mat-icon>
+            <mat-icon *ngIf="showPassword" (click)="toggleShow()" matSuffix></mat-icon>
+          </mat-form-field>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+
+    <ng-container class="" [ngTemplateOutlet]="loginButton"></ng-container>
+
+    <ion-row>
+      <ion-col class="flex-auto ion-text-center ion-padding-top" size="12">
+        <mx-text [title]="'OR' | translate" [type]="'title'"></mx-text>
       </ion-col>
-      <ion-col size="12" class="ion-text-center ion-padding-top">
-        <a (click)="loginType = 2" class="SFPROB13">{{
-          "Sign_in_with_Email" | translate
-        }}</a>
-      </ion-col>
-      <ion-col size="12" class="ion-text-center SFPROB13">
-        {{ "Don’t_have_an_Account?" | translate }}
-        <a routerLink="/auth/sign-up">{{ "Create_Account" | translate }}</a>
+      <ion-col class="ion-text-center ion-padding-top" size="12">
+        <ion-button size="small" fill="outline" (click)="changeTypeLogin()">
+          <mx-text
+            [title]="(loginType === 1 ? 'SIGN_IN_WITH_EMAIL' : 'SIGN_IN_WITH_PHONE_NUMBER') | translate"
+            [type]="'description'"></mx-text>
+        </ion-button>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="loginType == 2" class="top-padding">
-      <ion-col size="12" class="ion-text-center ion-padding-top">
-        <ion-img
-          class="image-css"
-          src="../../../../assets/images/home_key_icon 1.png"
-        ></ion-img>
-      </ion-col>
-      <ion-col class="ion-padding-top ion-text-center" size="12">
-        <ion-text class="SFPROM20">{{
-          "Login_to_Account" | translate
-        }}</ion-text>
-      </ion-col>
-      <ion-col size="12">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>{{ "Enter-E-mail-Address" | translate }}</mat-label>
-          <input matInput placeholder="{{'Enter-E-mail-Address' | translate}}" />
-        </mat-form-field>
-      </ion-col>
 
-      <ion-col size="12">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>{{ "Enter-Password" | translate }}</mat-label>
-          <input
-            placeholder="{{'Enter-Password' | translate}}"
-            [type]="showPassword ? 'text' : 'password'"
-            matInput
-          />
-
-          <mat-icon *ngIf="!showPassword" (click)="toggleShow()" matSuffix
-            >visibility</mat-icon
-          >
-          <mat-icon *ngIf="showPassword" (click)="toggleShow()" matSuffix
-            >visibility_off</mat-icon
-          >
-        </mat-form-field>
-      </ion-col>
-      <ion-col size="12" class="ion-text-center ion-padding-top">
-        <ion-button class="btn-css" routerLink="/tabs">{{
-          "Sign_In" | translate
-        }}</ion-button>
-      </ion-col>
-
-      <ion-col size="12" class="ion-text-center SFPROM15 ion-padding-top">
-        {{ "OR" | translate }}
-      </ion-col>
-      <ion-col size="12" class="ion-text-center ion-padding-top">
-        <a (click)="loginType = 1" class="SFPROB13">{{
-          "Sign_in_with_Phone_Number" | translate
-        }}</a>
-      </ion-col>
-      <ion-col size="12" class="ion-text-center SFPROB13">
-        {{ "Don’t_have_an_Account?" | translate }}
-        <a routerLink="/auth/sign-up">{{ "Create_Account" | translate }}</a>
-      </ion-col>
+    <ion-row class="bottom-screen flex-row">
+      <ng-container [ngTemplateOutlet]="createAnAccount"></ng-container>
     </ion-row>
   </ion-grid>
 </ion-content>
+
+
+<ng-template #loginButton>
+  <ion-button expand="block" size="large" routerLink="/auth/otp">
+    {{'LOGIN' | translate}}
+  </ion-button>
+</ng-template>
+
+<ng-template #createAnAccount>
+  <ion-col size="12" class="ion-text-center">
+    <mx-text [title]="'DONT_HAVE_AN_ACCOUNT' | translate" [type]="'description'"></mx-text>
+    <a routerLink="/auth/sign-up" class="">
+      <mx-text [title]="'CREATE_AN_ACCOUNT' | translate" [type]="'description'"></mx-text>
+    </a>
+  </ion-col>
+</ng-template>

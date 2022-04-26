@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'mx-app-signup',
@@ -15,9 +16,9 @@ export class SignupComponent implements OnInit {
   selectedCountryCode = '🇫🇷 +33';
 
   contryCode = [
-    { countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg' },
-    { countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png' },
-    { countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png' },
+    {countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg'},
+    {countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png'},
+    {countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png'},
   ];
 
   registrationForm = new FormGroup({
@@ -30,9 +31,11 @@ export class SignupComponent implements OnInit {
     address: new FormControl('', Validators.required),
   });
 
-  constructor() {}
+  constructor(translate: TranslateService) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   segmentChanged(ev: any) {
     this.selectedTab = ev.target.value;
@@ -56,11 +59,4 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  numberOnly(event: any) {
-    const charCode = event.which ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-      return false;
-    }
-    return true;
-  }
 }

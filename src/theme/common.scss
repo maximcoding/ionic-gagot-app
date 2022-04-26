@@ -52,6 +52,10 @@ $padding-right-element: 20px;
   overflow: revert !important;
 }
 
+.mat-form-field-wrapper {
+  padding: 0 !important;
+}
+
 mx-input {
   //width: 100%;
 }
@@ -67,7 +71,6 @@ input[type="text"] {
 ion-header {
   background: $background-color;
 }
-
 
 ion-fab-button {
   background: transparent !important;
@@ -92,6 +95,10 @@ ion-select {
   font-size: $font-size-button;
   justify-content: center;
   padding-left: 20px;
+}
+
+ion-segment-button {
+  text-transform: none;
 }
 
 
@@ -332,5 +339,9 @@ ion-title {
   text-align: center;
 }
 
-
-
+mx-brand-logo-title {
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

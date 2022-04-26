@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mx-app-login',
@@ -6,20 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
   loginType = 1;
   showPassword = false;
   selectedCountryCode = '🇫🇷 +33';
   phoneNumber: number;
 
   contryCode = [
-    { countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg' },
-    { countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png' },
-    { countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png' },
+    {countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg'},
+    {countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png'},
+    {countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png'},
   ];
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   toggleShow(): void {
     this.showPassword = !this.showPassword;
@@ -31,5 +34,9 @@ export class LoginComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  public changeTypeLogin() {
+    this.loginType = this.loginType === 1 ? 2 : 1;
   }
 }

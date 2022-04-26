@@ -16,6 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 
+import {BrandLogoTitleComponent} from './components/brand-logo-title/brand-logo-title.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +29,6 @@ import { NgxMaskModule } from 'ngx-mask';
     SharedModule,
     NgxMaskModule.forRoot()
   ],
-  declarations: [AuthPage, LoginComponent, SignupComponent, OtpComponent],
+  declarations: [AuthPage, LoginComponent, SignupComponent, OtpComponent, BrandLogoTitleComponent],
 })
 export class AuthPageModule {}

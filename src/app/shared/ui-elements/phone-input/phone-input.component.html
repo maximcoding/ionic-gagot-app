@@ -1,0 +1,25 @@
+<ion-row class="flex-auto full-height full-width">
+  <ion-col class="ion-padding-top" size="4">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{ 'COUNTRY' | translate }}</mat-label>
+      <mat-select [value]="selectedCountryCode">
+        <mat-option *ngFor="let contry of contryCode" [value]="contry.code">
+          {{ contry.code }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ion-col>
+  <ion-col class="ion-padding-top" size="8">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{ 'PHONE_NUMBER' | translate }}</mat-label>
+      <input
+        type="text"
+        mask="(00)-000-0000"
+        (keypress)="numberOnly($event)"
+        maxlength="14"
+        matInput
+        placeholder="XX-XXX-XXXX"
+      />
+    </mat-form-field>
+  </ion-col>
+</ion-row>

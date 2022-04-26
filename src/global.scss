@@ -31,44 +31,6 @@
 
 @import "~leaflet/dist/leaflet.css";
 
-@font-face {
-  font-family: SFPRODISPLAYBLACKITALIC;
-  src: url("assets/fonts/SFPRODISPLAYBLACKITALIC.OTF");
-}
-
-@font-face {
-  font-family: SFPRODISPLAYBOLD;
-  src: url("assets/fonts/SFPRODISPLAYBOLD.OTF");
-}
-
-@font-face {
-  font-family: SFPRODISPLAYMEDIUM;
-  src: url("assets/fonts/SFPRODISPLAYMEDIUM.OTF");
-}
-
-.SFPROM20 {
-  font-family: SFPRODISPLAYMEDIUM !important;
-  font-size: 20px !important;
-  font-weight: bold !important;
-  color: black !important;
-  filter: drop-shadow(1px 1px 1px #4a4a4a83);
-}
-
-.SFPROM11 {
-  font-family: SFPRODISPLAYMEDIUM !important;
-  font-size: 11px !important;
-}
-
-.SFPROM15 {
-  font-family: SFPRODISPLAYMEDIUM !important;
-  font-size: 15px !important;
-}
-
-.SFPROB13 {
-  font-family: SFPRODISPLAYBOLD !important;
-  font-size: 13px !important;
-}
-
 .example-full-width {
   width: 100%;
 }
