@@ -1,0 +1,39 @@
+ion-content {
+  --background: url(../../../../assets/images/background.png) no-repeat center/cover fixed;
+}
+
+.input-border {
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.font-color {
+  color: #fe3d3b;
+}
+
+ion-item-divider {
+  min-height: 0.5px;
+}
+
+.upload_button {
+  display: inline-block;
+}
+
+#upload_button input[type="file"] {
+  display: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.tabs-wrapper {
+  min-height: 13vw;
+}
+
+.fields-wrapper {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}

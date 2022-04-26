@@ -1,0 +1,161 @@
+<ion-content>
+
+  <ion-grid class="ion-padding full-width flex-column">
+
+    <mx-brand-logo-title [title]="'CREATE_AN_ACCOUNT' | translate"></mx-brand-logo-title>
+
+    <ng-template [ngIf]="selectedTab == 1">
+      <form [formGroup]="registrationForm">
+        <ion-row class="fields-wrapper">
+          <ion-col size="12" class="ion-padding-top">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ 'NAME' | translate }}</mat-label>
+              <input matInput formControlName="name" placeholder="{{ 'NAME' | translate }}"/>
+
+              <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
+                {{ 'NAME' | translate }} {{ 'IS_REQUIRED' | translate }}
+              </mat-error>
+
+            </mat-form-field>
+          </ion-col>
+          <ion-col size="12">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ 'EMAIL_ADDRESS' | translate }}</mat-label>
+              <input matInput formControlName="email" placeholder="{{ 'EMAIL_ADDRESS' | translate }}"/>
+              <mat-error
+                *ngIf="registrationForm.controls['email'].hasError('email') && !registrationForm.controls['email'].hasError('required')">
+                {{ 'PLEASE_ENTER_VALID_EMAIL_ADDRESS' | translate }}
+              </mat-error>
+              <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
+                {{ 'EMAIL' | translate }} {{ 'IS_REQUIRED' | translate }}
+              </mat-error>
+            </mat-form-field>
+          </ion-col>
+          <ion-col size="12">
+            <mx-phone-input class="full-width"></mx-phone-input>
+          </ion-col>
+          <ion-col size="12">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ 'CREATE_PASSWORD' | translate }}</mat-label>
+              <input
+                formControlName="password"
+                placeholder="{{ 'CREATE_PASSWORD' | translate }}"
+                [type]="showPassword ? 'text' : 'password'"
+                matInput
+              />
+
+              <mat-icon *ngIf="!showPassword" (click)="toggleShow()" matSuffix>visibility</mat-icon>
+              <mat-icon *ngIf="showPassword" (click)="toggleShow()" matSuffix>visibility_off</mat-icon>
+
+              <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
+                {{ 'PASSWORD' | translate }} {{ 'IS_REQUIRED' | translate }}
+              </mat-error>
+            </mat-form-field>
+          </ion-col>
+          <ion-col size="12">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ 'CONFIRM_PASSWORD' | translate }}</mat-label>
+              <input
+                formControlName="confirm_password"
+                placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"
+                [type]="showConfirmPassword ? 'text' : 'password'"
+                matInput/>
+
+              <mat-icon *ngIf="!showConfirmPassword" (click)="toggleShowConfirmPass()" matSuffix>visibility</mat-icon>
+              <mat-icon *ngIf="showConfirmPassword" (click)="toggleShowConfirmPass()" matSuffix>visibility_off
+              </mat-icon>
+
+              <mat-error *ngIf="registrationForm.controls['confirm_password'].hasError('required')">
+                {{ 'Confirm-Password' | translate }}
+                {{ 'is-required' | translate }}
+              </mat-error>
+            </mat-form-field>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ng-template>
+
+    <ng-template [ngIf]="selectedTab == 2">
+      <form [formGroup]="registrationForm">
+        <ion-row class="fields-wrapper">
+          <ion-col size="12" class="ion-padding-top">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ 'COMPANY_ID' | translate }}</mat-label>
+              <input matInput formControlName="companyId" placeholder="{{ 'COMPANY_ID' | translate }}"/>
+
+              <mat-error *ngIf="registrationForm.controls['companyId'].hasError('required')">
+                {{ 'COMPANY_ID' | translate }} {{ 'IS_REQUIRED' | translate }}
+              </mat-error>
+            </mat-form-field>
+          </ion-col>
+          <ion-col size="12">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ 'OFFICE_ADDRESS' | translate }}</mat-label>
+              <input matInput formControlName="address" placeholder="{{ 'OFFICE_ADDRESS' | translate }}"/>
+              <mat-error *ngIf="registrationForm.controls['address'].hasError('required')">
+                {{ 'OFFICE_ADDRESS' | translate }}
+                {{ 'IS_REQUIRED' | translate }}
+              </mat-error>
+
+            </mat-form-field>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ng-template>
+
+    <ion-row class="full-width">
+      <ion-segment class="tabs-wrapper" value="{{ selectedTab }}" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="1">
+          <mx-text [type]="'sectionTitle'" [title]="'BASIC_INFO' | translate"></mx-text>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <mx-text [type]="'sectionTitle'" [title]="'AGENT_INFO' | translate"></mx-text>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-row>
+
+    <ng-container [ngTemplateOutlet]="signUpButton"></ng-container>
+    <ng-container [ngTemplateOutlet]="termsOfUse"></ng-container>
+    <ng-container [ngTemplateOutlet]="loginWith"></ng-container>
+
+  </ion-grid>
+
+</ion-content>
+
+
+<ng-template #termsOfUse>
+  <ion-col
+    routerLink="/auth/login"
+    size="12"
+    class="ion-text-center">
+    <mx-text [title]="'YOU_AGREE' | translate" [type]="'description'"></mx-text>
+    <br>
+    <a>
+      <mx-text class="ion-margin-bottom" [title]="'TERMS_OF_USE' | translate" [type]="'description'"></mx-text>
+    </a>
+  </ion-col>
+</ng-template>
+
+
+<ng-template #loginWith>
+  <ion-row class="ion-text-center full-width bottom-screen">
+    <ion-col routerLink="/auth/login" size="12">
+      <mx-text class="ion-margin-bottom" [title]="'ALREADY_HAVE_AN_ACCOUNT' | translate"
+               [type]="'description'"></mx-text>
+      <a>
+        <mx-text class="ion-margin-bottom" [title]="'LOGIN' | translate" [type]="'description'"></mx-text>
+      </a>
+    </ion-col>
+  </ion-row>
+</ng-template>
+
+<ng-template #signUpButton>
+  <ion-col class="ion-padding-top ion-text-center" size="12">
+    <ion-button
+      class="ion-text-center"
+      (click)="selectedTab = 2"
+      size="large" expand="block">
+      {{'SIGN_UP' | translate}}
+    </ion-button>
+  </ion-col>
+</ng-template>

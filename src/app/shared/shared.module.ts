@@ -1,5 +1,5 @@
 import {CountryCodesComponent} from './ui-elements/country-codes/country-codes.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CustomLoaderComponent} from './ui-elements/custom-loader/custom-loader.component';
 import {NgModule} from '@angular/core';
 import {ProgressBarComponent} from './ui-elements/progress-bar/progress-bar.component';
@@ -31,6 +31,10 @@ import {IdentityRevealedValidatorDirective} from './pipes/identify-revealed.dire
 import {UserAgreementComponent} from './components/user-agreement/user-agreement.component';
 import {MessagesComponent} from './components/messages/messages.component';
 import {PropertyDetailsComponent} from './components/properties/property-details/property-details.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {PhoneInputComponent} from './ui-elements/phone-input/phone-input.component';
 
 @NgModule({
   declarations: [
@@ -60,14 +64,19 @@ import {PropertyDetailsComponent} from './components/properties/property-details
     IdentityRevealedValidatorDirective,
     UserAgreementComponent,
     MessagesComponent,
-    PropertyDetailsComponent
+    PropertyDetailsComponent,
+    PhoneInputComponent
   ],
   imports: [
     IonicModule,
     CommonModule,
     TranslateModule,
     FormsModule,
-    ScrollingModule
+    ScrollingModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [],
@@ -96,8 +105,13 @@ import {PropertyDetailsComponent} from './components/properties/property-details
     RadioButtonComponent,
     UserAgreementComponent,
     MessagesComponent,
-    PropertyDetailsComponent
-  ]
+    PropertyDetailsComponent,
+    PhoneInputComponent,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    ReactiveFormsModule
+  ],
 })
 export class SharedModule {
 }

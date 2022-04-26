@@ -16,9 +16,9 @@
 
     <!-- Step One -->
     <ng-container *ngIf="steps.step == 1">
-      <div class="container de-flex ">
+      <div class="container de-flex">
         <div>
-          <div class="brand-title">{{'LOGIN_TO_ACCOUNT' | translate}}</div>
+          <mx-text [type]="'header'" [title]="'LOGIN_TO_ACCOUNT' | translate"></mx-text>
         </div>
         <div class="avatar-box">
           <img src="../../../assets/icons/img.png" id="proImage" class="profile_img">
