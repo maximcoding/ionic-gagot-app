@@ -286,7 +286,8 @@ $screen-padding: 0rem;
 
 .mx-checkboxes {
   //align-items: baseline;
-  //display: flex;
+  display: flex;
+  flex-direction: row;
   //justify-content: center;
   //padding-right: 30px;
   //flex: 1;

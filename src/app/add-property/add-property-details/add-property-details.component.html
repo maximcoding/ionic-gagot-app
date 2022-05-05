@@ -26,13 +26,13 @@
     <ion-label class="label-nowrap">
       <mx-text [type]="textType.sectionTitle" [title]="'NEW_CONSTRUCTION' | translate"></mx-text>
     </ion-label>
-    <ion-list class="flex-auto mx-checkboxes">
+    <ion-list class="flex-row mx-checkboxes">
       <ion-radio-group allow-empty-selection="false"
-                       class="flex-auto flex-1"
+                       class="flex-1"
                        name="radio-group"
                        (ionChange)="onNewConstructionSelect($event)"
                        #radioGroup>
-        <ion-row class="flex-auto ion-float-right">
+        <ion-row class="ion-float-right">
           <ion-item *ngFor="let item of radio_list"
                     (ionFocus)="radioFocus()"
                     (ionBlur)="radioBlur()">
