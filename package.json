@@ -13,6 +13,11 @@
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook",
+    "capacitor-generate-ios": "ionic capacitor add ios",
+    "capacitor-open-ios": "ionic capacitor open ios",
+    "capacitor-copy-ios": "ionic capacitor copy ios",
+    "capacitor-build": "ionic capacitor build",
+    "capacitor-run-ios": "ionic capacitor run ios -l --external",
     "prettier:check": "prettier --config .prettierrc.json --check \"src/**/*.{ts,scss,html}\""
   },
   "husky": {

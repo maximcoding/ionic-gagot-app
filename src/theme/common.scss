@@ -68,6 +68,12 @@ input[type="text"] {
   font-size: $font-size-normal !important;
 }
 
+mx-app-otp {
+  input[type="text"] {
+    font-size: $font-size-26 !important;
+  }
+}
+
 ion-header {
   background: $background-color;
 }
@@ -77,8 +83,8 @@ ion-fab-button {
 }
 
 ion-button {
-  font-size: $font-size-button;
-  -border-radius: $border-radius !important;
+  //font-size: $font-size-button;
+  //-border-radius: $border-radius !important;
   /*transition: all 0.2s ease-in-out;
   &:hover {
     box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
@@ -92,7 +98,7 @@ ion-button {
 ion-select {
   //width: 100%;
   //min-height: $button-height !important;
-  font-size: $font-size-button;
+  //font-size: $font-size-button;
   justify-content: center;
   padding-left: 20px;
 }
@@ -340,8 +346,8 @@ ion-title {
 }
 
 mx-brand-logo-title {
-  min-height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+

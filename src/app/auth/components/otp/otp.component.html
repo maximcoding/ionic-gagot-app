@@ -1,99 +1,97 @@
 <ion-content [fullscreen]="true">
 
-  <ion-grid class="ion-padding full-width full-height">
+  <ion-grid class="ion-padding full-width full-height flex-column">
 
-    <mx-brand-logo-title class="flex-auto" [title]="'LOGIN_TO_ACCOUNT' | translate"></mx-brand-logo-title>
+    <mx-brand-logo-title class="" [title]="'VERIFICATION' | translate"></mx-brand-logo-title>
 
+    <ion-row class="fields-wrapper flex-column ion-padding-top">
+      <ion-row class="ion-text-center">
+        <ion-col size="12">
+          <mx-text [title]="'' | translate" [type]="'header'"></mx-text>
+        </ion-col>
+        <ion-col size="12">
+          <mx-text [title]="'WE_HAVE_SENT_THE_CODE' | translate" [type]="'description'"></mx-text>
+        </ion-col>
+        <ion-col size="12">
+          {{phoneNumber}}
+        </ion-col>
+      </ion-row>
+    </ion-row>
 
+    <ion-row class="ion-margin">
+      <ion-col size="12" class="ion-text-center flex-row ion-align-items-end">
+        <ion-col size="2" class="ion-text-center ion-justify-content-center ion-align-items-center">
+          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+                     #otp1
+                     required="true"
+                     maxLength="1"
+                     (keyup)="otpController($event, otp2, '')">
+          </ion-input>
+        </ion-col>
+        <ion-col size="2">
+          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+                     #otp2
+                     required="true"
+                     maxLength="1"
+                     (keyup)="otpController($event, otp3, otp1)"
+          >
+          </ion-input>
+        </ion-col>
+        <ion-col size="2">
+          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+                     #otp3
+                     required="true"
+                     maxLength="1"
+                     (keyup)="otpController($event, otp4, otp2)"
+          >
+          </ion-input>
+        </ion-col>
+        <ion-col size="2">
+          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+                     #otp4
+                     required="true"
+                     maxLength="1"
+                     (keyup)="otpController($event, otp5, otp3)"
+          >
+          </ion-input>
+        </ion-col>
+        <ion-col size="2">
+          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+                     #otp5
+                     required="true"
+                     maxLength="1"
+                     (keyup)="otpController($event, otp6, otp4)"
+          >
+          </ion-input>
+        </ion-col>
+        <ion-col size="2">
+          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+                     #otp6
+                     required="true"
+                     maxLength="1"
+                     (keyup)="otpController($event, '', otp5)">
+          </ion-input>
+        </ion-col>
+      </ion-col>
+    </ion-row>
     <ion-row>
-      <ion-col size="12">
-        <mx-text [title]="'VERIFY_YOUR_PHONE_NUMBER' | translate" [type]="'title'">
-        </mx-text>
+      <ion-col size="12" class="">
+        <ion-button
+          routerLink="/tabs"
+          size="large"
+          expand="block">
+          {{'SEND' | translate}}
+        </ion-button>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col size="12" size-md="4" offset-md="4">
-        <ion-row>
-          <ion-col size="2">
-            <ion-input
-              class="input-border"
-              style="padding-left: 10px !important"
-              #otp1
-              required="true"
-              maxLength="1"
-              (keyup)="otpController($event, otp2, '')"
-            >
-            </ion-input>
-          </ion-col>
-          <ion-col size="2">
-            <ion-input
-              class="input-border"
-              style="padding-left: 10px !important"
-              #otp2
-              required="true"
-              maxLength="1"
-              (keyup)="otpController($event, otp3, otp1)"
-            >
-            </ion-input>
-          </ion-col>
-          <ion-col size="2">
-            <ion-input
-              class="input-border"
-              style="padding-left: 10px !important"
-              #otp3
-              required="true"
-              maxLength="1"
-              (keyup)="otpController($event, otp4, otp2)"
-            >
-            </ion-input>
-          </ion-col>
-
-          <ion-col size="2">
-            <ion-input
-              class="input-border"
-              style="padding-left: 10px !important"
-              #otp4
-              required="true"
-              maxLength="1"
-              (keyup)="otpController($event, otp5, otp3)"
-            >
-            </ion-input>
-          </ion-col>
-
-          <ion-col size="2">
-            <ion-input
-              class="input-border"
-              style="padding-left: 10px !important"
-              #otp5
-              required="true"
-              maxLength="1"
-              (keyup)="otpController($event, otp6, otp4)"
-            >
-            </ion-input>
-          </ion-col>
-
-          <ion-col size="2">
-            <ion-input
-              class="input-border"
-              style="padding-left: 10px !important"
-              #otp6
-              required="true"
-              maxLength="1"
-              (keyup)="otpController($event, '', otp5)"
-            >
-            </ion-input>
-          </ion-col>
-
-          <ion-col size="12" class="ion-text-center ion-padding-top">
-            <ion-button
-              routerLink="/tabs"
-              size="large"
-              expand="block">
-              {{'SUBMIT' | translate}}
-            </ion-button>
-          </ion-col>
-        </ion-row>
+    <ion-row class="ion-text-center full-width bottom-screen ion-margin-top ion-margin-bottom">
+      <ion-col routerLink="/auth/login" size="12">
+        <mx-text class="ion-margin-bottom" [title]="'DONT_RECEIVE_OTP' | translate"
+                 [type]="'description'"></mx-text>
+        <a>
+          <mx-text class="ion-margin-bottom" [title]="'RESEND' | translate" [type]="'description'"></mx-text>
+        </a>
       </ion-col>
     </ion-row>
 

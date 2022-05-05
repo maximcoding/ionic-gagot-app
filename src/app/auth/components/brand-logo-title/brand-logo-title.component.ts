@@ -8,7 +8,7 @@ import {Component, OnInit, Input} from '@angular/core';
 export class BrandLogoTitleComponent implements OnInit {
 
   @Input() title: string;
-
+  @Input() minHeight: number;
   constructor() {
   }
 

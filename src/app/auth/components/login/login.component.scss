@@ -18,7 +18,33 @@ a {
   width: 100%;
 }
 
-.fields-wrapper {
-  min-height: 30%;
+.fields-wrapper-phone {
+  min-height: 218px;
+  margin-bottom: 2px;
   justify-content: flex-end;
+}
+
+.fields-wrapper-email {
+  min-height: 220px;
+  justify-content: flex-end;
+}
+
+mx-brand-logo-title {
+  min-height: 39vw;
+}
+
+.bottom-screen {
+  min-height: 15vw;
+}
+
+.forgot-pass {
+  min-height: 34px;
+}
+
+.or-text-height {
+  height: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'mx-app-otp',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./otp.component.scss'],
 })
 export class OtpComponent implements OnInit {
+
   OTP: any;
+
+  @Input() phoneNumber: string = '+972-54-655-6585';
 
   otpController(event: any, next: any, prev: any) {
     if (event.target.value.length < 1 && prev) {
@@ -26,7 +29,13 @@ export class OtpComponent implements OnInit {
     return true;
   }
 
-  constructor() {}
+  public resend() {
 
-  ngOnInit() {}
+  }
+
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
 }
