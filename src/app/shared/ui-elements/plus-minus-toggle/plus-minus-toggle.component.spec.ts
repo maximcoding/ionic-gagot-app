@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { PlusMinusToggleComponent } from './plus-minus-toggle.component';
+import {PlusMinusToggleComponent} from './plus-minus-toggle.component';
 
 describe('PlusMinusToggleComponent', () => {
   let component: PlusMinusToggleComponent;
@@ -9,8 +9,8 @@ describe('PlusMinusToggleComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlusMinusToggleComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [PlusMinusToggleComponent],
+      imports: [], // IonicModule.forRoot({mode: 'md'})
     }).compileComponents();
 
     fixture = TestBed.createComponent(PlusMinusToggleComponent);

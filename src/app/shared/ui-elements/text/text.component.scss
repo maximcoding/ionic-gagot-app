@@ -2,24 +2,34 @@
 
 .text {
   font-family: $font-family;
+  //color: var(--ion-color-medium);
 
   &.header {
+    //color: var(--ion-color-tertiary);
     font-weight: $font-weight-600;
     font-size: $font-size-26;
   }
 
   &.sectionTitle {
-    font-size: $font-size-normal;
+    font-size: $font-size-18;
     font-weight: $font-weight-500;
   }
 
   &.title {
-    font-size: $font-size-normal;
+    font-size: $font-size-18;
     font-weight: $font-weight-600;
   }
 
   &.description {
-    font-size: $font-size-tiny;
+    font-weight: 400;
+    font-size: $font-size-normal;
+    flex: 1;
+  }
+
+  &.link {
+    font-weight: 500;
+    //color: var(--ion-color-secondary);
+    font-size: $font-size-normal;
     flex: 1;
   }
 

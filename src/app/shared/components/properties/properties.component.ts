@@ -11,6 +11,7 @@ import {RoleEnum} from '../../enums';
 import {ModalController} from '@ionic/angular';
 import {NextToEnum} from '../../enums/nexto.num';
 import {ActivatedRoute, Router} from '@angular/router';
+import {fakeHouses} from '../../mocks/propertiesData';
 
 export enum PropertiesModalType {
   renting = 'RENTING',
@@ -89,6 +90,7 @@ export class PropertiesComponent implements OnInit {
 
 
   public ngOnInit() {
+    // this.items = fakeHouses;
   }
 
   public dismiss() {
@@ -98,7 +100,7 @@ export class PropertiesComponent implements OnInit {
   public items = [{
     ...this.property,
     id: 1,
-    img: IMAGE_PATH,
+    img: IMAGE_PATH + 'img.png',
     name: BathEnum.BathCabin
   }, {
     id: 2,
@@ -108,7 +110,7 @@ export class PropertiesComponent implements OnInit {
     updatedAt: new Date('2021'),
     state: [PropertyState.Selling],
     nextTo: [NextToEnum.Sea, NextToEnum.Garden],
-    img: IMAGE_PATH,
+    img: IMAGE_PATH + 'img.png',
     name: BathEnum.BathCabin
   }, {
     id: 3,
@@ -122,23 +124,23 @@ export class PropertiesComponent implements OnInit {
     updatedAt: new Date('2021'),
     price: 1200000,
     nextTo: [NextToEnum.MedicalCenter, NextToEnum.Bus],
-    img: IMAGE_PATH,
+    img: IMAGE_PATH + 'img.png',
     name: BathEnum.BathCabin
   }, {
     id: 4,
     ...this.property,
-    img: IMAGE_PATH,
+    img: IMAGE_PATH + 'img.png',
     name: BathEnum.Jacuzzi
   },
     {
       id: 5,
       ...this.property,
-      img: IMAGE_PATH,
+      img: IMAGE_PATH + 'img.png',
       name: BathEnum.Bath
     }, {
       id: 6,
       ...this.property,
-      img: IMAGE_PATH,
+      img: IMAGE_PATH + 'img.png',
       name: BathEnum.Washbasins
     }];
 

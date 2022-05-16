@@ -7,9 +7,18 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
+  public languageDirection = 'ltr';
+
   constructor(private translate: TranslateService) {
-    this.translate.setDefaultLang(this.translate.getBrowserLang());
-    this.translate.use(this.translate.getBrowserLang());
+    // this.translate.setDefaultLang("he");
+    // this.translate.use("he");
+
+    if (['he', 'arab'].includes(this.translate.currentLang)) {
+      this.translate.setDefaultLang("he");
+      this.translate.use("he");
+      // this.languageDirection = 'rtl';
+    }
   }
 
 }

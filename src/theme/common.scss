@@ -3,9 +3,19 @@
 
 
 $border-radius: 6px;
+
 $transition-selection: all 0.2s ease;
 $button-height: 64px;
 $padding-right-element: 20px;
+$shadow-box-button: 1px 1px 2px #e1e1e1, -2px -4px 2px #f9f9f9;
+
+a {
+  cursor: pointer;
+}
+
+.border-element {
+  border: 1px solid $color-border;
+}
 
 .flex-row {
   display: flex;
@@ -144,23 +154,31 @@ ion-item {
   //width: 100%;
   align-items: center;
   justify-content: center;
-  //min-height: $button-height;
+  min-height: 54px;
   border-radius: $border-radius;
-  border: 1px solid var(--ion-color-primary);
+  @extend .border-element;
+
+  box-shadow: 10px 10px 37px #f5f5f5, -10px -10px 37px #ffffff;
   //background: #75aed0;
 }
 
+ion-radio-group {
+  min-height: 56px;
+}
+
 .field {
+  border: 1px solid var(--ion-color-primary);
   display: flex;
   flex-direction: column;
   //flex: 1;
-  margin: 1em 0 1em 0;
+  margin: 14px 0 14px 0;
   //width: 100%;
   align-items: center;
   justify-content: center;
-  //min-height: $button-height;
+  min-height: 54px;
   border-radius: $border-radius;
-  border: 1px solid var(--ion-color-primary);
+  box-shadow: 10px 10px 37px #f5f5f5,
+  -10px -10px 37px #ffffff;
   //background: #75aed0;
 }
 
@@ -171,6 +189,8 @@ ion-item {
 
 ion-input,
 ion-textarea {
+  //border: 1px solid var(--ion-color-tertiary);
+  //@extend .border-element;
   //font-size: $font-size-normal;
   //box-shadow: 1px 1px 3px #c1c1c1, -1px -1px 3px #ffffff;
   //border-bottom-width: 1px;
@@ -217,9 +237,12 @@ mx-dropdown {
   justify-content: space-between;
 }
 
+.mat-form-field-appearance-outline .mat-form-field-label {
+  margin-left: 10px;
+}
 
 .section {
-  margin-top: 1rem;
+  margin-top: 5px;
   padding: 1rem;
   border-radius: $border-radius;
   //background: grey;
@@ -231,16 +254,16 @@ mx-dropdown {
   //border: 1px solid #f1f1f1;
 }
 
-.section2 {
+.text-button {
   margin: 1rem;
   padding: 1rem;
   border-radius: 5px;
-  background-color: $background-color;
-  //border: 1px solid #f1f1f1;
+  background-color: $color-light;
+  border: 1px solid #66a08c;
 }
 
 .box-shadow {
-  box-shadow: 0 8px 10px -6px grey;
+  box-shadow: 0 8px 5px -6px #c0c0c0;
 }
 
 hr {
@@ -250,7 +273,7 @@ hr {
 .audioImg {
   margin: 1rem 0 1rem 0;
   border-radius: $border-radius;
-  border: 1px solid #f1f1f1;
+  @extend .border-element;
   position: relative;
 
   img {
@@ -352,3 +375,107 @@ mx-brand-logo-title {
   justify-content: center;
 }
 
+
+.border-top {
+  border-top: 1px solid $color-border;
+}
+
+.border-bottom {
+  border-bottom: 3px solid $color-border;
+}
+
+ion-chip {
+  box-shadow: 2px 3px 2px #e1e1e1, 0 0 0 #f9f9f9;
+}
+
+ion-chip {
+  background: $color-white;
+
+  mx-text {
+    ion-text {
+      //color: var(--ion-color-secondary)
+    }
+  }
+
+}
+
+ion-toolbar {
+  --min-height: 56px !important;
+  --padding-bottom: 0;
+  --border-color: white;
+  --background: white;
+  border-bottom: 1px solid $color-border !important;
+}
+
+ion-toolbar,
+ion-list,
+ion-content,
+ion-tab-button {
+  background: white;
+}
+
+ion-radio-group {
+  display: flex;
+  flex: none;
+  min-height: 54px;
+
+  ion-row {
+
+    .item {
+      display: flex;
+      --padding-start: 5px;
+      --inner-padding-end: 5px !important;
+
+      .item-native {
+        min-height: 56px !important;
+      }
+
+      ion-label {
+
+      }
+
+      ion-radio {
+
+      }
+    }
+  }
+}
+
+//::ng-deep .mat-form-field-underline {
+//  display: none;
+//}
+
+//::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+//  background-color: white;
+//  border-radius: 5px;
+//}
+//
+//::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+//  background-color: #fff;
+//}
+//
+//::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+//  border-radius: 4px;
+//  padding: 0.75em 0.75em 0 0.75em;
+//  @extend .border-element;
+//  border-top: none;
+//  border-left: none;
+//  border-right: none;
+//}
+
+
+ion-app {
+  --ion-background-color: linear-gradient(90deg, rgba(217, 220, 239, 1) 0%, rgba(255, 213, 213, 1) 60%, rgba(255, 227, 189, 1) 100%);
+}
+
+ion-item {
+  --ion-background-color: white;
+}
+
+.button-shadow {
+  --border-radius: 26px;
+  border-radius: 26px;
+  border-color: #d6acac;
+  color: white;
+  background: #d6acac;
+}

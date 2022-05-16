@@ -20,22 +20,21 @@ ion-segment {
     display: grid;
     flex-direction: column;
     border-radius: $border-radius;
-    background: $background-color;
-
-    //background: white !important;
+    background: white !important;
 
     &.category-button {
+      @extend .button-shadow;
       width: 6.5rem;
       min-width: 6.5rem;
       max-width: 8rem;
-      max-height: 6.5rem;
-      min-height: 6.5rem;
+      max-height: 7.5rem;
+      min-height: 5.5rem;
       border-radius: $border-radius;
 
       mx-checkbox {
         position: absolute;
-        right: -10px;
-        top: 10px;
+        right: -5px;
+        top: 0px;
       }
     }
 

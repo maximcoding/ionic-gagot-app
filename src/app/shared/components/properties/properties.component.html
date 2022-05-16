@@ -12,7 +12,8 @@
 
 <cdk-virtual-scroll-viewport [class.margin]="!viewType" itemSize="{{items.length}}">
   <ion-list>
-    <ion-card class="card-size" *cdkVirtualFor="let item of items" button (click)="goToPropertyDetails(item)">
+    <ion-card class="card-size ion-no-margin ion-margin-bottom"
+              *cdkVirtualFor="let item of items" button (click)="goToPropertyDetails(item)">
       <ng-container [ngTemplateOutlet]="imageList" [ngTemplateOutletContext]="{item: item}"></ng-container>
       <!--      <ng-container [ngTemplateOutlet]="thumbnailsList" [ngTemplateOutletContext]="{item: item}"></ng-container>-->
 
@@ -28,14 +29,14 @@
   <ion-card-content class="ion-no-margin ion-no-padding">
     <img class="image-cover" [src]="item.img"/>
     <div class="flex-column space-between flex-auto" [ngStyle]="{'min-height':'15vh'}">
-      <ion-row class="category ion-row">
+      <ion-row class="category ion-margin ion-row border-bottom">
         <ng-container [ngTemplateOutlet]="category" [ngTemplateOutletContext]="{item: item}"></ng-container>
         <ng-container [ngTemplateOutlet]="price" [ngTemplateOutletContext]="{item: item,pushEnd: true}"></ng-container>
       </ion-row>
-      <ion-row class="ion-row">
+      <ion-row class="ion-row ion-padding-end">
         <ng-container [ngTemplateOutlet]="date" [ngTemplateOutletContext]="{item: item, pushEnd: true}"></ng-container>
       </ion-row>
-      <ion-row class="ion-row">
+      <ion-row class="ion-row ion-padding">
         <ng-container [ngTemplateOutlet]="rating" [ngTemplateOutletContext]="{item: item}"></ng-container>
         <ng-container [ngTemplateOutlet]="state" [ngTemplateOutletContext]="{item: item}"></ng-container>
       </ion-row>
@@ -63,7 +64,7 @@
         <ion-row class="ion-row ion-no-padding ion-no-margin">
           <ion-item class="ion-no-padding ion-no-margin">
             <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-            <ion-text class="text">{{item.address}}</ion-text>
+            <mx-text class="text" [title]="item.address" [type]="'description'"></mx-text>
           </ion-item>
           <div class="flex-row full-width flex-1">
             <ng-container [ngTemplateOutlet]="category" [ngTemplateOutletContext]="{item: item}"></ng-container>
@@ -107,7 +108,7 @@
 <ng-template #category let-item="item">
   <ion-col>
     <ion-chip color="primary">
-      {{item.category}}
+      <mx-text [type]="'description'" [title]="item.category | translate"></mx-text>
     </ion-chip>
   </ion-col>
 </ng-template>
@@ -115,10 +116,13 @@
 <ng-template #price let-item="item" let-pushEnd="pushEnd">
   <ion-col class="flex-row ion-justify-content-end" [class.ion-justify-content-end]="pushEnd">
     <ion-chip color="primary">
-      <ion-icon *ngIf="item.priceDown" name="trending-down-outline" color="success" size="medium"></ion-icon>
-      <ion-icon *ngIf="item.priceUp" name="trending-up-outline" color="danger" size="medium"></ion-icon>
+      <ion-icon
+        class="trending"
+        *ngIf="item.priceDown" name="trending-down-outline" color="success" size="medium"></ion-icon>
+      <ion-icon class="trending"
+                *ngIf="item.priceUp" name="trending-up-outline" color="danger" size="medium"></ion-icon>
       <ion-text class="price">
-        {{item.price | currency: userSettings.currency : 'symbol': '3.0'}}
+        <mx-text [type]="'description'" [title]="item.price | currency: userSettings.currency : 'symbol': '3.0'"></mx-text>
       </ion-text>
     </ion-chip>
   </ion-col>
@@ -128,7 +132,7 @@
 <ng-template #address let-item="item">
   <ion-col class="ion-align-items-center flex-row ion-text-nowrap">
     <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <ion-text class="text address">{{item.address}}</ion-text>
+    <mx-text class="" [type]="'description'" [title]="item.address"></mx-text>
   </ion-col>
 </ng-template>
 
@@ -136,7 +140,7 @@
 <!--RATING-->
 <ng-template #rating let-item="item">
   <ion-col>
-    <ion-chip color="primary">
+    <ion-chip color="secondary">
       <ion-item class="ion-no-padding ion-no-margin">
         <ion-icon size="small" name="star"></ion-icon>
         <ion-icon size="small" name="star"></ion-icon>
@@ -144,7 +148,8 @@
         <ion-icon size="small" name="star-half"></ion-icon>
         <ion-icon size="small" name="star-outline"></ion-icon>
       </ion-item>
-      <ion-text class="text-value">3.5</ion-text>
+      <mx-text [type]="'description'"
+               [title]="3.5"></mx-text>
     </ion-chip>
   </ion-col>
 </ng-template>
@@ -153,10 +158,12 @@
 <ng-template #state let-item="item">
   <ion-col class="flex-row ion-justify-content-end">
     <ion-chip color="primary">
-      <ion-text class="text">{{item.state[0] | translate}}</ion-text>
+      <mx-text [type]="'description'"
+               [title]="item.state[0] | translate"></mx-text>
     </ion-chip>
     <ion-chip color="primary" *ngIf="item.state[1]">
-      <ion-text class="text">{{item.state[1] | translate}}</ion-text>
+      <mx-text [type]="'description'"
+               [title]="item.state[1] | translate"></mx-text>
     </ion-chip>
   </ion-col>
 </ng-template>
@@ -166,7 +173,7 @@
   <ion-col class="flex-row ion-nowrap" [class.ion-justify-content-end]="pushEnd">
     <ion-chip color="primary" class="ion-nowrap label-nowrap">
       <ion-icon name="timer"></ion-icon>
-      <ion-text class="text ion-nowrap">{{item.updatedAt | localizedDate}}</ion-text>
+      <mx-text class="text ion-nowrap" [title]="item.updatedAt | localizedDate" [type]="'description'"></mx-text>
     </ion-chip>
   </ion-col>
 </ng-template>
@@ -175,8 +182,8 @@
 <ng-template #bedrooms let-item="item">
   <ion-col class="flex-row  ion-align-items-center">
     <ion-icon class="icon" size="small" name="bed-outline"></ion-icon>
-    <ion-text class="text-value">{{item.bedroom}}</ion-text>
-    <ion-text class="text">{{'BEDROOMS' | translate}}</ion-text>
+    <mx-text class="text-value" [title]="item.bedroom" [type]="'description'"></mx-text>
+    <mx-text class="text" [type]="'description'" [title]="'BEDROOMS' | translate"></mx-text>
   </ion-col>
 </ng-template>
 
@@ -184,8 +191,8 @@
 <ng-template #bathrooms let-item="item">
   <ion-col class="flex-row ion-align-items-center">
     <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <ion-text class="text-value">{{item.bathroom}}</ion-text>
-    <ion-text class="text">{{'BATHROOMS' | translate}}</ion-text>
+    <mx-text class="text-value" [title]="item.bathroom" [type]="'description'"></mx-text>
+    <mx-text class="text" [type]="'description'" [title]="'BATHROOMS' | translate"></mx-text>
   </ion-col>
 </ng-template>
 
@@ -194,8 +201,9 @@
 <ng-template #floor let-item="item">
   <ion-col class="flex-row ion-align-items-center">
     <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <ion-text class="text-value">{{item.floor}}</ion-text>
-    <ion-text class="text">{{'FLOOR' | translate}}</ion-text>
+    <mx-text class="text-value" [type]="'description'"
+             [title]="item.floor"></mx-text>
+    <mx-text [type]="'description'" [title]="'FLOOR' | translate"></mx-text>
   </ion-col>
 </ng-template>
 
@@ -203,17 +211,17 @@
 <ng-template #square let-item="item">
   <ion-col class="flex-row ion-align-items-center">
     <ion-icon class="icon" size="small" name="body-outline"></ion-icon>
-    <ion-text class="text-value">{{item.square}}</ion-text>
-    <ion-text class="text">{{userSettings?.measurement | translate}}</ion-text>
+    <mx-text class="text-value" [title]="item.square" [type]="'description'"></mx-text>
+    <mx-text class="text" [type]="'description'" [title]="userSettings?.measurement | translate"></mx-text>
   </ion-col>
 </ng-template>
 
 <!--NEXT TO-->
 <ng-template #nextTo let-item="item">
-  <ion-col class="flex-row">
+  <ion-col class="flex-row border-top">
     <div class="flex-row ion-align-items-center" *ngFor="let nextTo of item.nextTo">
       <ion-icon class="icon" size="small" color="primary" name="ribbon-outline"></ion-icon>
-      <ion-text class="">{{nextTo | translate}}</ion-text>
+      <mx-text [type]="'description'" [title]="nextTo | translate"></mx-text>
     </div>
   </ion-col>
 </ng-template>

@@ -3,6 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IUser} from '../../shared/interfaces/user.interface';
 import {MeasurementEnum} from '../../shared/enums/measurement.enum';
 import {CurrencyEnum} from '../../shared/enums/currency.enum';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'mx-settings',
@@ -36,10 +37,16 @@ export class SettingsComponent implements OnInit {
     message: 'Only select your dominant hair color'
   };
 
-  constructor(private modalCtrl: ModalController) {
+  constructor(
+    private translate: TranslateService,
+    private modalCtrl: ModalController) {
   }
 
   ngOnInit() {
+  }
+
+  public translationChange($event) {
+    this.translate.use($event.detail.value);
   }
 
   dismiss() {

@@ -1,13 +1,10 @@
 @import "common";
 
+
 ion-content {
   //--background: url(../../../../assets/images/background.png) no-repeat center/cover fixed;
 }
 
-.input-border {
-  border: 1px solid #000000;
-  border-radius: 10px;
-}
 
 a {
   color: #0042ed;
@@ -47,4 +44,8 @@ mx-brand-logo-title {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.login-button {
+  min-height: 56px;
 }

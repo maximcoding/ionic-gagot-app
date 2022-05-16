@@ -6,6 +6,7 @@ import {IonDatetime} from '@ionic/angular';
 import {IProgressBarStep} from '../shared/ui-elements/progress-bar/progress-bar.component';
 import {TextType} from '../shared/ui-elements/text/text.component';
 import {NavigationService} from '../shared/services/navigation.service';
+import {IonContent} from '@ionic/angular';
 
 export enum AddPropertyScreen {
   location = 'location',
@@ -24,7 +25,7 @@ export enum AddPropertyScreen {
 export class AddPropertyComponent {
 
   @ViewChild(IonDatetime, {static: true}) datetime: IonDatetime;
-
+  @ViewChild(IonContent) content: IonContent;
 
   public property: IProperty = {
     state: [],
@@ -109,10 +110,20 @@ export class AddPropertyComponent {
     this.activeStep = this.navigationService.activateRoute($event);
     this.navigationService.navigate(`${this.rootRoute}/${this.activeStep?.path}`);
     this.updateStep();
+    this.scrollToTop();
   }
 
   public onOutletLoaded(component) {
     component.property = this.property;
+  }
+
+
+  scrollToTop() {
+    this.content.scrollToTop(400);
+  }
+
+  ionViewDidEnter() {
+    this.scrollToTop();
   }
 
 

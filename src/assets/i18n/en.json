@@ -95,7 +95,7 @@
   },
   "PLACEHOLDERS": {
     "ENTER_ADDRESS": "Enter Address",
-    "ENTER_VALUE_IN": "Enter value in {{value}}",
+    "ENTER_VALUE_IN": "In {{value}}",
     "DESCRIPTION": "Description",
     "ENTER_OLD_PASSWORD": "Enter old Password",
     "ENTER_NEW_PASSWORD": "Enter new Password"
@@ -279,5 +279,10 @@
   "ENTER_COMPANY_ID": "Enter Company ID",
   "COMPANY_ID": "Company ID",
   "ENTER_OFFICE_ADDRESS": "Enter Office Address",
-  "OFFICE_ADDRESS": "Office Address"
+  "OFFICE_ADDRESS": "Office Address",
+  "ENGLISH": "English",
+  "RUSSIAN": "Russian",
+  "ARABIC": "Arabic",
+  "HEBREW": "Hebrew",
+  "FRENCH": "French"
 }

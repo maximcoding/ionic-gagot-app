@@ -39,11 +39,12 @@
       <ion-label color="medium">
         <h4>{{'TRANSLATION' | translate}}</h4>
       </ion-label>
-      <ion-select value="eng">
-        <ion-select-option value="eng">English</ion-select-option>
-        <ion-select-option value="ur">Urdu</ion-select-option>
-        <ion-select-option value="ar">Arabic</ion-select-option>
-        <ion-select-option value="german">German</ion-select-option>
+      <ion-select value="en" (ionChange)="translationChange($event)">
+        <ion-select-option value="en">{{'ENGLISH' | translate}}</ion-select-option>
+        <ion-select-option value="he">{{'HEBREW' | translate}}</ion-select-option>
+        <ion-select-option value="arab">{{'ARABIC' | translate}}</ion-select-option>
+        <ion-select-option value="rus">{{'RUSSIAN' | translate}}</ion-select-option>
+        <ion-select-option value="fr">{{'FRENCH' | translate}}</ion-select-option>
       </ion-select>
     </ion-item>
 

@@ -1,6 +1,6 @@
 import {PopularityEnum, SquareUnitsEnum} from '../enums';
+import faker from '@faker-js/faker';
 
-import * as faker from 'faker';
 
 const PROPERTIES_COUNT = 10;
 export const fakeHouses = []; // IProperty[]

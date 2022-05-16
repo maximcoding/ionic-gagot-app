@@ -13,6 +13,10 @@ cdk-virtual-scroll-viewport {
   }
 }
 
+.trending {
+  font-size: 24px;
+}
+
 .property-image {
   width: 11vh;
   height: 11vh;
@@ -25,10 +29,6 @@ cdk-virtual-scroll-viewport {
 
 .text-value {
   padding-right: 4px;
-}
-
-ion-chip {
-  background: $color-white;
 }
 
 ion-thumbnail {
@@ -90,11 +90,14 @@ ion-thumbnail {
 ion-text {
   font-family: $font-family;
   font-size: $font-size-tiny;
+  white-space: nowrap;
+
 }
 
 .image-cover {
   object-fit: cover;
   width: 100%;
+  opacity: 0.6;
   max-height: 100%;
   position: absolute;
 }
@@ -102,5 +105,4 @@ ion-text {
 //.card-size {
 //  height: 250px;
 //}
-
 

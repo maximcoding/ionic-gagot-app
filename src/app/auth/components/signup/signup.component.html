@@ -2,7 +2,7 @@
 
   <ion-grid class="ion-padding full-width full-height flex-column">
 
-    <mx-brand-logo-title class="flex-1"
+    <mx-brand-logo-title class="brand-padding-top"
                          [title]="'CREATE_AN_ACCOUNT' | translate">
     </mx-brand-logo-title>
 
@@ -88,7 +88,7 @@
     </ng-template>
 
     <ion-row class="">
-      <mx-phone-input></mx-phone-input>
+      <mx-phone-input class="full-width"></mx-phone-input>
     </ion-row>
 
     <ion-row class="full-width">
@@ -129,7 +129,7 @@
     <mx-text [title]="'YOU_AGREE' | translate" [type]="'description'"></mx-text>
     <br>
     <a>
-      <mx-text class="ion-margin-bottom" [title]="'TERMS_OF_USE' | translate" [type]="'description'"></mx-text>
+      <mx-text class="ion-margin-bottom" [title]="'TERMS_OF_USE' | translate" [type]="'link'"></mx-text>
     </a>
   </ion-col>
 </ng-template>
@@ -141,7 +141,7 @@
       <mx-text class="ion-margin-bottom" [title]="'ALREADY_HAVE_AN_ACCOUNT' | translate"
                [type]="'description'"></mx-text>
       <a>
-        <mx-text class="ion-margin-bottom" [title]="'LOGIN' | translate" [type]="'description'"></mx-text>
+        <mx-text class="ion-margin-bottom" [title]="'LOGIN' | translate" [type]="'link'"></mx-text>
       </a>
     </ion-col>
   </ion-row>
@@ -149,8 +149,9 @@
 
 <ng-template #signUpButton>
   <ion-col class="ion-text-center" size="12">
-    <ion-button class="ion-text-center"
+    <ion-button fill="outline" class="ion-text-center button-shadow"
                 (click)="selectedTab = 2"
+                shape="round"
                 size="large" expand="block">
       {{'SIGN_UP' | translate}}
     </ion-button>

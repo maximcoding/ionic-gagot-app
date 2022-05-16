@@ -20,7 +20,7 @@ export enum TextType {
 export class TextComponent implements OnInit {
 
   @Input() title: string;
-  @Input() type: TextType;
+  @Input() type: TextType = TextType.description;
   @Input() color: Color;
 
   @Output() onClick: EventEmitter<any> = new EventEmitter<any>();

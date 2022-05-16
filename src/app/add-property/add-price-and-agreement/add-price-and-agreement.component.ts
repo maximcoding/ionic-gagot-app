@@ -19,7 +19,13 @@ export class AddPriceAndAgreementComponent implements OnInit {
   }
 
   public options = [{name: "Euro", value: "euro"}, {name: "Dollar", value: "dollar"}]
-  public items = [{img: IMAGE_PATH, name: "Sell"}, {img: IMAGE_PATH, name: "Rent"}]
+  public items = [{
+    img: IMAGE_PATH + 'sell.svg',
+    name: "Sell"
+  }, {
+    img: IMAGE_PATH + 'rent.svg',
+    name: "Rent"
+  }]
 
   ngOnInit() {
   }

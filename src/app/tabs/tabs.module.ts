@@ -7,15 +7,17 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 import {TranslateModule} from '@ngx-translate/core';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    TabsPageRoutingModule,
-    TranslateModule
-  ],
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        TabsPageRoutingModule,
+        TranslateModule,
+        SharedModule
+    ],
   declarations: [TabsPage]
 })
 export class TabsPageModule {}

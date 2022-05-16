@@ -18,7 +18,7 @@ export class FiltersComponent implements OnInit {
 
   public InputType = InputType;
   public TextType = TextType;
-  public items = [{img: IMAGE_PATH, name: "Sell"}, {img: IMAGE_PATH, name: "Rent"}]
+  public items = [{img: IMAGE_PATH + 'sell.svg', name: "Sell"}, {img: IMAGE_PATH + 'rent.svg', name: "Rent"}]
   public nextToList = Object.values(NextToEnum);
   public amenities = Object.values(CommonAmenitiesEnum);
   public kitchenAmenities = Object.values(KitchenEnum);
