@@ -16,7 +16,8 @@ a {
 }
 
 .fields-wrapper-phone {
-  min-height: 218px;
+  //min-height: 218px;
+  padding-bottom: 30px;
   margin-bottom: 2px;
   justify-content: flex-end;
 }
@@ -28,10 +29,6 @@ a {
 
 mx-brand-logo-title {
   min-height: 39vw;
-}
-
-.bottom-screen {
-  min-height: 15vw;
 }
 
 .forgot-pass {
@@ -46,6 +43,13 @@ mx-brand-logo-title {
   justify-content: center;
 }
 
-.login-button {
-  min-height: 56px;
+//.login-button {
+//  min-height: 56px;
+//}
+
+
+.bottom-screen {
+  width: 90%;
+  position: absolute;
+  bottom: 0;
 }

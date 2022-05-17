@@ -10,6 +10,7 @@
     [class.flex-row]="inRow">
     <ion-segment-button
       class="category-button"
+      [class.selected]="category.title === selected"
       *ngFor="let category of categories" value="{{category.title}}">
       <mx-checkbox
         *ngIf="category.title === selected"

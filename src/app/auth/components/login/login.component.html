@@ -1,31 +1,32 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" dir="{{languageDirection}}">
+  <img alt="house-frame-top" class="house-frame-top" src="{{IMAGE_PATH + 'house.svg'}}"/>
+  <img alt="house-frame-bottom" class="house-frame-bottom" src="{{IMAGE_PATH + 'house.svg'}}"/>
 
   <ion-grid class="ion-padding full-width full-height flex-column">
 
-    <mx-brand-logo-title class="" [title]="'' | translate"></mx-brand-logo-title>
-
-
-    <ion-row class="flex-column ion-justify-content-end">
+    <ion-row class="flex-column ion-justify-content-end login-header">
       <ion-row class="ion-text-center">
         <ion-col size="12">
-          <mx-text *ngIf="loginType == 2" [title]="'LOGIN_WITH_EMAIL_ADDRESS' | translate" [type]="'title'"></mx-text>
-          <mx-text *ngIf="loginType == 1" [title]="'LOGIN_WITH_MOBILE' | translate" [type]="'title'"></mx-text>
+          <mx-text [title]="'LOGIN' | translate" [type]="'header'"></mx-text>
         </ion-col>
       </ion-row>
       <ion-row class="ion-text-center">
         <ion-col size="12">
-          <mx-text *ngIf="loginType == 2" [title]="'PLEASE_VERIFY_YOUR_EMAIL_ADDRESS' | translate"
-                   [type]="'description'"></mx-text>
-          <mx-text *ngIf="loginType == 1" [title]="'WILL_WILL_SEND_YOU' | translate" [type]="'description'"></mx-text>
+          <mx-text [title]="'SIGN_IN_TO_ACCESS_ACCOUNT' | translate" [type]="'description'"></mx-text>
         </ion-col>
       </ion-row>
     </ion-row>
 
-    <ion-row *ngIf="loginType == 1" class="fields-wrapper-phone flex-column ion-padding-top ion-padding-bottom">
-      <mx-phone-input class="ion-margin-bottom ion-margin-top"></mx-phone-input>
+    <ion-row class="fields-wrapper-phone flex-column">
+      <div class="input-with-icon flex-auto ion-justify-content-center flex-row">
+        <img class="input-login-icon" src="{{IMAGE_PATH + 'login-field.svg'}}" alt="icon-left"/>
+        <ion-input class="circle-input" placeholder="{{'EMAIL_ADDRESS_OR_PHONE_NUMBER' | translate}}"></ion-input>
+      </div>
+      <!--      <mx-phone-input class="ion-margin-bottom ion-margin-top"></mx-phone-input>-->
     </ion-row>
 
-    <ion-row dir="{{languageDirection}}" *ngIf="loginType == 2" class="fields-wrapper-email flex-column ion-padding-top">
+    <ion-row dir="{{languageDirection}}" *ngIf="loginType == 2"
+             class="fields-wrapper-email flex-column ion-padding-top">
       <ion-row class="flex-row">
         <ion-col class="flex-auto ion-padding-top" size="12">
           <mat-form-field class="full-width" appearance="outline">
@@ -49,22 +50,25 @@
       </ion-row>
     </ion-row>
 
-    <ng-container [ngTemplateOutlet]="loginButton"></ng-container>
-
     <ion-row>
-      <ion-col class="flex-auto ion-text-center or-text-height or-text" size="12">
-        <mx-text class="bold" [title]="'OR' | translate" [type]="'label'"></mx-text>
-      </ion-col>
-      <ion-col class="ion-text-center" size="12">
-        <a fill="none" (click)="changeTypeLogin()">
-          <mx-text
-            [title]="(loginType === 1 ? 'SIGN_IN_WITH_EMAIL' : 'SIGN_IN_WITH_PHONE_NUMBER') | translate"
-            [type]="'link'"></mx-text>
-        </a>
+      <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+        <ng-container [ngTemplateOutlet]="loginButton"></ng-container>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <!--      <ion-col class="flex-auto ion-text-center or-text-height or-text" size="12">-->
+      <!--        <mx-text class="bold" [title]="'OR' | translate" [type]="'label'"></mx-text>-->
+      <!--      </ion-col>-->
+      <!--      <ion-col class="ion-text-center" size="12">-->
+      <!--        <a fill="none" (click)="changeTypeLogin()">-->
+      <!--          <mx-text-->
+      <!--            [title]="(loginType === 1 ? 'SIGN_IN_WITH_EMAIL' : 'SIGN_IN_WITH_PHONE_NUMBER') | translate"-->
+      <!--            [type]="'link'"></mx-text>-->
+      <!--        </a>-->
+      <!--      </ion-col>-->
+    </ion-row>
 
-    <ion-row class="bottom-screen flex-row">
+    <ion-row class="bottom-screen ion-padding flex-row">
       <ng-container [ngTemplateOutlet]="createAnAccount"></ng-container>
     </ion-row>
   </ion-grid>
@@ -72,16 +76,14 @@
 
 
 <ng-template #loginButton>
-  <ion-button fill="outline" class="login-button button-shadow" expand="block" size="large" routerLink="/auth/otp">
-    {{'LOGIN' | translate}}
-  </ion-button>
+  <mx-login-button routerLink="/auth/otp"></mx-login-button>
 </ng-template>
 
 <ng-template #createAnAccount>
   <ion-col size="12" class="ion-text-center">
     <mx-text [title]="'DONT_HAVE_AN_ACCOUNT' | translate" [type]="'description'"></mx-text>
     <a fill="none" routerLink="/auth/sign-up" class="">
-      <mx-text [title]="'CREATE_AN_ACCOUNT' | translate" [type]="'link'"></mx-text>
+      <mx-text [title]="'TO_REGISTER' | translate" [type]="'link'"></mx-text>
     </a>
   </ion-col>
 </ng-template>

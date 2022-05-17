@@ -35,6 +35,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {PhoneInputComponent} from './ui-elements/phone-input/phone-input.component';
+import {LoginButtonComponent} from './ui-elements/circle-button/login-button.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {PhoneInputComponent} from './ui-elements/phone-input/phone-input.compone
     UserAgreementComponent,
     MessagesComponent,
     PropertyDetailsComponent,
-    PhoneInputComponent
+    PhoneInputComponent,
+    LoginButtonComponent
   ],
   imports: [
     IonicModule,
@@ -107,6 +109,7 @@ import {PhoneInputComponent} from './ui-elements/phone-input/phone-input.compone
     MessagesComponent,
     PropertyDetailsComponent,
     PhoneInputComponent,
+    LoginButtonComponent,
     MatInputModule,
     MatSelectModule,
     MatIconModule,

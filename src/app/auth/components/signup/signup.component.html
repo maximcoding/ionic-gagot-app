@@ -1,63 +1,78 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" dir="{{languageDirection}}">
 
   <ion-grid class="ion-padding full-width full-height flex-column">
 
-    <mx-brand-logo-title class="brand-padding-top"
-                         [title]="'CREATE_AN_ACCOUNT' | translate">
-    </mx-brand-logo-title>
+    <ion-row class="flex-column ion-justify-content-end signup-header">
+      <ion-row class="ion-text-center">
+        <ion-col size="12">
+          <mx-text [title]="'REGISTER' | translate" [type]="'header'"></mx-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-text-center">
+        <ion-col size="12">
+          <mx-text [title]="'CREATE_ACCOUNT' | translate" [type]="'description'"></mx-text>
+        </ion-col>
+      </ion-row>
+    </ion-row>
 
     <ng-template [ngIf]="selectedTab == 1">
       <form [formGroup]="registrationForm">
         <ion-row class="fields-wrapper">
-          <ion-col size="12">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ 'EMAIL_ADDRESS' | translate }}</mat-label>
-              <input matInput formControlName="email" placeholder="{{ 'EMAIL_ADDRESS' | translate }}"/>
-              <mat-error
-                *ngIf="registrationForm.controls['email'].hasError('email') && !registrationForm.controls['email'].hasError('required')">
-                {{ 'PLEASE_ENTER_VALID_EMAIL_ADDRESS' | translate }}
-              </mat-error>
-              <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">
-                <!--                 {{ 'IS_REQUIRED' | translate }}-->
-              </mat-error>
-            </mat-form-field>
+          <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+            <div class="input-with-icon">
+              <img class="input-email-icon" src="{{ICON_PATH + 'email.svg'}}" alt="icon-left"/>
+              <ion-input class="circle-input" placeholder="{{'EMAIL_ADDRESS' | translate}}"></ion-input>
+            </div>
           </ion-col>
-          <ion-col size="12">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ 'CREATE_PASSWORD' | translate }}</mat-label>
-              <input
-                formControlName="password"
-                placeholder="{{ 'CREATE_PASSWORD' | translate }}"
-                [type]="showPassword ? 'text' : 'password'"
-                matInput
-              />
+          <!--          <ion-col size="12">-->
+          <!--            <mat-form-field class="full-width" appearance="outline">-->
+          <!--              <mat-label>{{ 'EMAIL_ADDRESS' | translate }}</mat-label>-->
+          <!--              <input matInput formControlName="email" placeholder="{{ 'EMAIL_ADDRESS' | translate }}"/>-->
+          <!--              <mat-error-->
+          <!--                *ngIf="registrationForm.controls['email'].hasError('email') && !registrationForm.controls['email'].hasError('required')">-->
+          <!--                {{ 'PLEASE_ENTER_VALID_EMAIL_ADDRESS' | translate }}-->
+          <!--              </mat-error>-->
+          <!--              <mat-error *ngIf="registrationForm.controls['email'].hasError('required')">-->
+          <!--                {{ 'IS_REQUIRED' | translate }}-->
+          <!--              </mat-error>-->
+          <!--            </mat-form-field>-->
+          <!--          </ion-col>-->
+          <!--          <ion-col size="12">-->
+          <!--            <mat-form-field class="full-width" appearance="outline">-->
+          <!--              <mat-label>{{ 'CREATE_PASSWORD' | translate }}</mat-label>-->
+          <!--              <input-->
+          <!--                formControlName="password"-->
+          <!--                placeholder="{{ 'CREATE_PASSWORD' | translate }}"-->
+          <!--                [type]="showPassword ? 'text' : 'password'"-->
+          <!--                matInput-->
+          <!--              />-->
 
-              <mat-icon *ngIf="!showPassword" (click)="toggleShow()" matSuffix>visibility</mat-icon>
-              <mat-icon *ngIf="showPassword" (click)="toggleShow()" matSuffix>visibility_off</mat-icon>
+          <!--              <mat-icon *ngIf="!showPassword" (click)="toggleShow()" matSuffix>visibility</mat-icon>-->
+          <!--              <mat-icon *ngIf="showPassword" (click)="toggleShow()" matSuffix>visibility_off</mat-icon>-->
 
-              <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">
-                <!--                {{ 'IS_REQUIRED' | translate }}-->
-              </mat-error>
-            </mat-form-field>
-          </ion-col>
-          <ion-col size="12">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ 'CONFIRM_PASSWORD' | translate }}</mat-label>
-              <input
-                formControlName="confirm_password"
-                placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"
-                [type]="showConfirmPassword ? 'text' : 'password'"
-                matInput/>
+          <!--              <mat-error *ngIf="registrationForm.controls['password'].hasError('required')">-->
+          <!--                &lt;!&ndash;                {{ 'IS_REQUIRED' | translate }}&ndash;&gt;-->
+          <!--              </mat-error>-->
+          <!--            </mat-form-field>-->
+          <!--          </ion-col>-->
+          <!--          <ion-col size="12">-->
+          <!--            <mat-form-field class="full-width" appearance="outline">-->
+          <!--              <mat-label>{{ 'CONFIRM_PASSWORD' | translate }}</mat-label>-->
+          <!--              <input-->
+          <!--                formControlName="confirm_password"-->
+          <!--                placeholder="{{ 'CONFIRM_PASSWORD' | translate }}"-->
+          <!--                [type]="showConfirmPassword ? 'text' : 'password'"-->
+          <!--                matInput/>-->
 
-              <mat-icon *ngIf="!showConfirmPassword" (click)="toggleShowConfirmPass()" matSuffix>visibility</mat-icon>
-              <mat-icon *ngIf="showConfirmPassword" (click)="toggleShowConfirmPass()" matSuffix>visibility_off
-              </mat-icon>
+          <!--              <mat-icon *ngIf="!showConfirmPassword" (click)="toggleShowConfirmPass()" matSuffix>visibility</mat-icon>-->
+          <!--              <mat-icon *ngIf="showConfirmPassword" (click)="toggleShowConfirmPass()" matSuffix>visibility_off-->
+          <!--              </mat-icon>-->
 
-              <mat-error *ngIf="registrationForm.controls['confirm_password'].hasError('required')">
-                <!--                {{ 'IS_REQUIRED' | translate }}-->
-              </mat-error>
-            </mat-form-field>
-          </ion-col>
+          <!--              <mat-error *ngIf="registrationForm.controls['confirm_password'].hasError('required')">-->
+          <!--                &lt;!&ndash;                {{ 'IS_REQUIRED' | translate }}&ndash;&gt;-->
+          <!--              </mat-error>-->
+          <!--            </mat-form-field>-->
+          <!--          </ion-col>-->
         </ion-row>
       </form>
     </ng-template>
@@ -65,30 +80,53 @@
     <ng-template [ngIf]="selectedTab == 2">
       <form [formGroup]="registrationForm">
         <ion-row class="fields-wrapper">
-          <ion-col size="12" class="">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ 'NAME' | translate }}</mat-label>
-              <input matInput formControlName="name" placeholder="{{ 'NAME' | translate }}"/>
-              <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">
-                <!--                {{ 'IS_REQUIRED' | translate }}-->
-              </mat-error>
-            </mat-form-field>
+
+          <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+            <div class="input-with-icon">
+              <img class="input-name-icon" src="{{ICON_PATH + 'name.svg'}}" alt="icon-left"/>
+              <ion-input class="circle-input"
+                         placeholder="{{'NAME' | translate}}"></ion-input>
+            </div>
           </ion-col>
-          <ion-col size="12" class="">
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ 'COMPANY_ID' | translate }}</mat-label>
-              <input matInput formControlName="companyId" placeholder="{{ 'COMPANY_ID' | translate }}"/>
-              <mat-error *ngIf="registrationForm.controls['companyId'].hasError('required')">
-                <!--                {{ 'IS_REQUIRED' | translate }}-->
-              </mat-error>
-            </mat-form-field>
+
+          <!--          <ion-col size="12" class="">-->
+          <!--            <mat-form-field class="full-width" appearance="outline">-->
+          <!--              <mat-label>{{ 'NAME' | translate }}</mat-label>-->
+          <!--              <input matInput formControlName="name" placeholder="{{ 'NAME' | translate }}"/>-->
+          <!--              <mat-error *ngIf="registrationForm.controls['name'].hasError('required')">-->
+          <!--                &lt;!&ndash;                {{ 'IS_REQUIRED' | translate }}&ndash;&gt;-->
+          <!--              </mat-error>-->
+          <!--            </mat-form-field>-->
+          <!--          </ion-col>-->
+
+          <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+            <div class="input-with-icon">
+              <img class="input-passport-icon" src="{{ICON_PATH + 'passport.svg'}}" alt="icon-left"/>
+              <ion-input class="circle-input" placeholder="{{'COMPANY_ID' | translate}}"></ion-input>
+            </div>
           </ion-col>
+
+          <!--          <ion-col size="12" class="">-->
+          <!--            <mat-form-field class="full-width" appearance="outline">-->
+          <!--              <mat-label>{{ 'COMPANY_ID' | translate }}</mat-label>-->
+          <!--              <input matInput formControlName="companyId" placeholder="{{ 'COMPANY_ID' | translate }}"/>-->
+          <!--              <mat-error *ngIf="registrationForm.controls['companyId'].hasError('required')">-->
+          <!--                &lt;!&ndash;                {{ 'IS_REQUIRED' | translate }}&ndash;&gt;-->
+          <!--              </mat-error>-->
+          <!--            </mat-form-field>-->
+          <!--          </ion-col>-->
         </ion-row>
       </form>
     </ng-template>
 
     <ion-row class="">
-      <mx-phone-input class="full-width"></mx-phone-input>
+      <ion-col class="ion-padding-top ion-padding-bottom flex-auto ion-justify-content-center flex-row" size="12">
+        <div class="input-with-icon">
+          <img class="input-phone-icon" src="{{ICON_PATH + 'phone.svg'}}" alt="icon-left"/>
+          <ion-input class="circle-input" placeholder="{{'PHONE_NUMBER' | translate}}"></ion-input>
+        </div>
+      </ion-col>
+      <!--      <mx-phone-input class="full-width"></mx-phone-input>-->
     </ion-row>
 
     <ion-row class="full-width">
@@ -107,8 +145,11 @@
     </ion-row>
 
     <ion-row>
-      <ng-container [ngTemplateOutlet]="signUpButton"></ng-container>
+      <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+        <ng-container [ngTemplateOutlet]="signUpButton"></ng-container>
+      </ion-col>
     </ion-row>
+
     <ion-row class="terms-min-height">
       <ng-container [ngTemplateOutlet]="termsOfUse"></ng-container>
     </ion-row>
@@ -136,7 +177,7 @@
 
 
 <ng-template #loginWith>
-  <ion-row class="ion-text-center full-width bottom-screen">
+  <ion-row class="ion-text-center bottom-screen ion-padding">
     <ion-col routerLink="/auth/login" size="12">
       <mx-text class="ion-margin-bottom" [title]="'ALREADY_HAVE_AN_ACCOUNT' | translate"
                [type]="'description'"></mx-text>
@@ -147,13 +188,17 @@
   </ion-row>
 </ng-template>
 
+
 <ng-template #signUpButton>
-  <ion-col class="ion-text-center" size="12">
-    <ion-button fill="outline" class="ion-text-center button-shadow"
-                (click)="selectedTab = 2"
-                shape="round"
-                size="large" expand="block">
-      {{'SIGN_UP' | translate}}
-    </ion-button>
+  <ion-col
+    size="12"
+    class="ion-padding-top
+  ion-padding-bottom
+  flex-row
+  full-width
+  ion-justify-content-center
+  ion-text-center">
+    <mx-login-button (click)="selectedTab = 2" routerLink="/auth/otp">
+    </mx-login-button>
   </ion-col>
 </ng-template>

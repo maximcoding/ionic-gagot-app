@@ -18,8 +18,10 @@
   }
 
   .selection-button {
-    @extend .button-shadow;
-    background: white;
+    background: $background-color;
+    mix-blend-mode: hard-light;
+    border: 1px solid #716E6E;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 160px;
     width: 50%;
     margin: 1vh;
@@ -35,8 +37,8 @@
     }
 
     &.selected {
-      border: 1px solid $color-border;
-      box-shadow: none;
+      box-sizing: border-box;
+      background: var(--ion-color-success);
     }
 
     .icon {

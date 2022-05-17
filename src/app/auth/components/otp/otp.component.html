@@ -74,16 +74,10 @@
         </ion-col>
       </ion-col>
     </ion-row>
+
     <ion-row>
-      <ion-col size="12" class="">
-        <ion-button
-          fill="outline"
-          class="button-shadow"
-          routerLink="/tabs"
-          size="large"
-          expand="block">
-          {{'SEND' | translate}}
-        </ion-button>
+      <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+        <ng-container [ngTemplateOutlet]="loginButton"></ng-container>
       </ion-col>
     </ion-row>
 
@@ -100,3 +94,7 @@
   </ion-grid>
 
 </ion-content>
+
+<ng-template #loginButton>
+  <mx-login-button routerLink="/tabs"></mx-login-button>
+</ng-template>

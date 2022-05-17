@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
+import {ICON_PATH} from '../../../../global';
+import {languageDirection} from '../../../app.component';
 
 @Component({
   selector: 'mx-app-signup',
@@ -8,13 +10,14 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
+  public languageDirection = languageDirection;
   img: any;
   selectedTab = 1;
   showPassword = false;
   signUpType = 1;
   showConfirmPassword = false;
   selectedCountryCode = '🇫🇷 +33';
-
+  public ICON_PATH = ICON_PATH;
   contryCode = [
     {countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg'},
     {countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png'},

@@ -2,12 +2,11 @@
 
 .text {
   font-family: $font-family;
-  //color: var(--ion-color-medium);
+  color: white;
 
   &.header {
-    //color: var(--ion-color-tertiary);
     font-weight: $font-weight-600;
-    font-size: $font-size-26;
+    font-size: $font-size-30;
   }
 
   &.sectionTitle {
@@ -28,7 +27,7 @@
 
   &.link {
     font-weight: 500;
-    //color: var(--ion-color-secondary);
+    color: var(--ion-color-secondary);
     font-size: $font-size-normal;
     flex: 1;
   }

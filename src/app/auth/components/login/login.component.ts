@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {ICON_PATH, IMAGE_PATH} from '../../../../global';
+import {languageDirection} from '../../../app.component';
 
 @Component({
   selector: 'mx-app-login',
@@ -8,7 +10,9 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class LoginComponent implements OnInit {
 
+  public languageDirection = languageDirection;
   loginType = 1;
+  public IMAGE_PATH = ICON_PATH;
   showPassword = false;
   selectedCountryCode = '🇫🇷 +33';
   phoneNumber: number;
