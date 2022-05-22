@@ -275,7 +275,7 @@
   "TO_REGISTER": "להרשמה",
   "COUNTRY": "קוד מדינה",
   "EMAIL_ADDRESS": "כתובת דוא\"ל",
-  "EMAIL_ADDRESS_OR_PHONE_NUMBER": "מספר טלפון או כתובת דואר אלקטרוני",
+  "EMAIL_OR_PHONE_NUMBER": "מספר טלפון או כתובת דואר אלקטרוני",
   "ENTER_PASSWORD": "סיסמא",
   "SIGN_IN": "להתחבר",
   "SIGN_IN_TO_ACCESS_ACCOUNT": "כניסה לחשבון שלך",

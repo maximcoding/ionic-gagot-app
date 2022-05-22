@@ -26,11 +26,16 @@ import {OtpVerificationSuccessComponent} from './components/otp-verification-suc
     IonicModule,
     AuthPageRoutingModule,
     MatInputModule,
-    TranslateModule,
     SharedModule,
+    TranslateModule,
     NgxMaskModule.forRoot()
   ],
-  declarations: [AuthPage, LoginComponent, SignupComponent, OtpVerificationSuccessComponent, OtpComponent, BrandLogoTitleComponent],
+  declarations: [AuthPage,
+    LoginComponent,
+    SignupComponent,
+    OtpVerificationSuccessComponent,
+    OtpComponent,
+    BrandLogoTitleComponent],
 })
 export class AuthPageModule {
 }

@@ -17,21 +17,19 @@
         </ion-col>
       </ion-row>
     </ion-row>
-
     <ion-row class="fields-wrapper-phone flex-column">
       <div class="input-with-icon flex-auto ion-justify-content-center flex-row">
         <img class="input-login-icon" src="{{IMAGE_PATH + 'login-field.svg'}}" alt="icon-left"/>
         <ion-input
-          [formControl]=""
           (ionChange)="inputChange($event)"
           class="circle-input"
-          placeholder="{{'EMAIL_ADDRESS_OR_PHONE_NUMBER' | translate}}">
+          placeholder="{{'EMAIL_OR_PHONE_NUMBER' | translate}}">
         </ion-input>
       </div>
       <!--      <mx-phone-input class="ion-margin-bottom ion-margin-top"></mx-phone-input>-->
     </ion-row>
 
-    <ion-row dir="{{languageDirection}}" *ngIf="loginType == 2"
+    <ion-row *ngIf="loginType == 2"
              class="fields-wrapper-email flex-column ion-padding-top">
       <ion-row class="flex-row">
         <ion-col class="flex-auto ion-padding-top" size="12">

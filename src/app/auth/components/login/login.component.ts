@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {ICON_PATH, IMAGE_PATH} from '../../../../global';
+import {ICON_PATH} from '../../../../global';
 import {languageDirection} from '../../../app.component';
 import {FormControl, Validators} from '@angular/forms';
-import {UserAgreementComponent} from '../../../shared/components/user-agreement/user-agreement.component';
-import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'mx-app-login',
@@ -26,7 +24,7 @@ export class LoginComponent implements OnInit {
     {countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png'},
   ];
 
-  constructor(private translate: TranslateService,private modalCtrl: ModalController) {
+  constructor(private translate: TranslateService) {
   }
 
   ngOnInit() {
