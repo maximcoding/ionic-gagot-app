@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ModalController} from '@ionic/angular';
+import {languageDirection} from '../../app.component';
 
 @Component({
   selector: 'mx-tab1',
@@ -10,6 +11,7 @@ export class Tab1Page {
 
   public isGridOpen = false;
   public isSortOpen = false;
+  public languageDirection = languageDirection;
 
   constructor(public modalController: ModalController) {
   }
@@ -25,6 +27,11 @@ export class Tab1Page {
   public closeModal() {
     this.isGridOpen = false;
     this.isSortOpen = false;
+  }
+
+
+  public get checkBoxSlot() {
+    return languageDirection === 'rtl' ? 'end' : 'start';
   }
 }
 

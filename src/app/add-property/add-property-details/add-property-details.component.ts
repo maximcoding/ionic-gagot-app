@@ -5,6 +5,7 @@ import {FacilitiesEnum} from '../../shared/enums/facilities.enum';
 import {KitchenEnum} from '../../shared/enums/kitchen.enum';
 import {TextType} from '../../shared/ui-elements/text/text.component';
 import {InputType} from '../../shared/ui-elements/input/input.component';
+import {languageDirection} from '../../app.component';
 
 @Component({
   selector: 'mx-add-property-details',
@@ -14,7 +15,7 @@ import {InputType} from '../../shared/ui-elements/input/input.component';
 export class AddPropertyDetailsComponent implements OnInit {
 
   @Input() property: IProperty;
-
+  public langDir = languageDirection;
   public defaultSelectedRadio = "radio_2";
   //Get value on ionChange on IonRadioGroup
   public selectedRadioGroup: any;

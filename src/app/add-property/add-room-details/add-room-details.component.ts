@@ -4,6 +4,7 @@ import {KitchenEnum} from '../../shared/enums/kitchen.enum';
 import {TextType} from '../../shared/ui-elements/text/text.component';
 import {BathEnum} from '../../shared/enums/bath.enum';
 import {IMAGE_PATH} from '../../../global';
+import {languageDirection} from '../../app.component';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class AddRoomDetailsComponent implements OnInit {
   public textType = TextType;
   public kitchenAmenities = Object.values(KitchenEnum);
   public additionalBath = Object.values(BathEnum);
+  public langDir = languageDirection;
 
   constructor() {
   }

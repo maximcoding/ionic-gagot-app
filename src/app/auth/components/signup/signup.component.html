@@ -1,5 +1,6 @@
 <ion-content [fullscreen]="true" dir="{{languageDirection}}">
-
+  <img alt="house-frame-top" class="house-frame-top signup" src="{{ICON_PATH + 'house.svg'}}"/>
+  <img alt="house-frame-bottom" class="house-frame-bottom signup" src="{{ICON_PATH + 'house.svg'}}"/>
   <ion-grid class="ion-padding full-width full-height flex-column">
 
     <ion-row class="flex-column ion-justify-content-end signup-header">
@@ -169,7 +170,7 @@
     class="ion-text-center">
     <mx-text [title]="'YOU_AGREE' | translate" [type]="'description'"></mx-text>
     <br>
-    <a>
+    <a (click)="onUserAgreement()">
       <mx-text class="ion-margin-bottom" [title]="'TERMS_OF_USE' | translate" [type]="'link'"></mx-text>
     </a>
   </ion-col>

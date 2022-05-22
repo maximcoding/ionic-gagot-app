@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {ICON_PATH, IMAGE_PATH} from '../../../../global';
 import {languageDirection} from '../../../app.component';
+import {FormControl, Validators} from '@angular/forms';
+import {UserAgreementComponent} from '../../../shared/components/user-agreement/user-agreement.component';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'mx-app-login',
@@ -15,14 +18,15 @@ export class LoginComponent implements OnInit {
   public IMAGE_PATH = ICON_PATH;
   showPassword = false;
   selectedCountryCode = '🇫🇷 +33';
-  phoneNumber: number;
+  public phoneOrEmail: string;
+  inputFormCtrl = new FormControl('', Validators.required);
   contryCode = [
     {countryName: 'Israel', code: '🇮🇱 +972', img: 'assets/flag/ISRAEL.jpeg'},
     {countryName: 'FRANCE', code: '🇫🇷 +33', img: 'assets/flag/FRANCE.png'},
     {countryName: 'USA', code: '🇺🇸 +1', img: 'assets/flag/USA.png'},
   ];
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService,private modalCtrl: ModalController) {
   }
 
   ngOnInit() {
@@ -42,5 +46,12 @@ export class LoginComponent implements OnInit {
 
   public changeTypeLogin() {
     this.loginType = this.loginType === 1 ? 2 : 1;
+  }
+
+  public inputChange($event) {
+    this.inputFormCtrl.setValue($event.detail.value);
+    this.inputFormCtrl.markAsDirty();
+    this.inputFormCtrl.updateValueAndValidity();
+    this.phoneOrEmail = $event.detail.value;
   }
 }

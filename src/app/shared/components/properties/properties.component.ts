@@ -12,6 +12,7 @@ import {ModalController} from '@ionic/angular';
 import {NextToEnum} from '../../enums/nexto.num';
 import {ActivatedRoute, Router} from '@angular/router';
 import {fakeHouses} from '../../mocks/propertiesData';
+import {languageDirection} from '../../../app.component';
 
 export enum PropertiesModalType {
   renting = 'RENTING',
@@ -28,7 +29,7 @@ export enum PropertiesModalType {
 export class PropertiesComponent implements OnInit {
 
   @Input() public viewType: PropertiesModalType;
-
+  public languageDirection = languageDirection;
   public Measurement = MeasurementEnum;
   public userSettings: IUser = {
     appIdentifier: '',

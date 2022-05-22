@@ -1,8 +1,10 @@
 <mx-text [type]="type" [color]="'primary'" [title]='title'>
 </mx-text>
 <div class="grid">
-  <div class="timeSlots" (click)="selectTime(slot)" [class.selectedTimeSlot]="selectedTime === slot"
+  <div class="timeSlots ion-padding"
+       (click)="selectTime(slot)"
+       [class.selectedTimeSlot]="selectedTime === slot"
        *ngFor="let slot of timeSlots">
-    <p>{{slot}}</p>
+    {{slot}}
   </div>
 </div>

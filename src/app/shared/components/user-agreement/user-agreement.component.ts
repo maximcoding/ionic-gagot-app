@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
+import {languageDirection} from '../../../app.component';
 
 @Component({
   selector: 'mx-user-agreement',
@@ -8,6 +9,7 @@ import {ModalController} from '@ionic/angular';
 })
 export class UserAgreementComponent implements OnInit {
 
+  public langDir = languageDirection;
   constructor(private modalCtrl: ModalController) {
   }
 

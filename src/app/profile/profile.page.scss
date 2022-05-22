@@ -41,6 +41,7 @@ ion-avatar {
   width: 12vh;
   opacity: 0.3;
 }
+
 .profile-box {
   padding: 10px;
   height: auto !important;
@@ -50,6 +51,12 @@ ion-avatar {
     position: absolute !important;
     bottom: 15px;
     left: 80px;
+
+    &.direction {
+      left: 0;
+      right: 48px;
+    }
+
     z-index: 10;
     border-radius: 50px;
 

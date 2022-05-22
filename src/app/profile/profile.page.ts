@@ -12,6 +12,7 @@ import {PropertiesComponent, PropertiesModalType} from '../shared/components/pro
 import {MessagesComponent} from '../shared/components/messages/messages.component';
 import {PaymentOptionsComponent} from './payment-options/payment-options.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
+import {languageDirection} from '../app.component';
 
 @Component({
   selector: 'mx-profile-settings',
@@ -28,6 +29,7 @@ export class ProfilePage implements OnInit {
   isDeleted = false;
   isPause = false;
 
+  public languageDir = languageDirection;
   public customActionSheetOptions: any = {
     header: 'Colors',
     subHeader: 'Select your favorite color'
@@ -293,6 +295,10 @@ export class ProfilePage implements OnInit {
       'task': 'updateStatus',
       'pstatus': pstatus
     }
+  }
+
+  public get slotDir(): string {
+    return languageDirection === 'rtl' ? 'start' : 'end';
   }
 
 }

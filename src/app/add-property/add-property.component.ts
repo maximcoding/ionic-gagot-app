@@ -7,6 +7,7 @@ import {IProgressBarStep} from '../shared/ui-elements/progress-bar/progress-bar.
 import {TextType} from '../shared/ui-elements/text/text.component';
 import {NavigationService} from '../shared/services/navigation.service';
 import {IonContent} from '@ionic/angular';
+import {languageDirection} from '../app.component';
 
 export enum AddPropertyScreen {
   location = 'location',
@@ -26,7 +27,7 @@ export class AddPropertyComponent {
 
   @ViewChild(IonDatetime, {static: true}) datetime: IonDatetime;
   @ViewChild(IonContent) content: IonContent;
-
+  public languageDirection = languageDirection;
   public property: IProperty = {
     state: [],
     title: '',

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ICON_PATH} from '../../../../global';
 
 @Component({
   selector: 'mx-app-otp',
@@ -9,8 +10,8 @@ export class OtpComponent implements OnInit {
 
   OTP: any;
 
-  @Input() phoneNumber: string = '+972-54-655-6585';
-
+  @Input() phoneNumber: string = '+972546556585';
+  public ICON_PATH = ICON_PATH;
   otpController(event: any, next: any, prev: any) {
     if (event.target.value.length < 1 && prev) {
       prev.setFocus();

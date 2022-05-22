@@ -1,11 +1,12 @@
-<div class="section">
-  <mx-calendar></mx-calendar>
-</div>
-<div class="section">
-  <mx-set-time [type]="textType.sectionTitle" [title]="'SELECT_TIME_FROM' | translate"
+<div dir="{{langDir}}">
+  <div class="section">
+    <mx-calendar></mx-calendar>
+  </div>
+  <mx-set-time class="section"
+    [type]="textType.sectionTitle" [title]="'SELECT_TIME_FROM' | translate"
                [timeSlots]="startTimeSlot"></mx-set-time>
-</div>
-<div class="section">
-  <mx-set-time [type]="textType.sectionTitle" [title]="'SELECT_TIME_TO' | translate"
+  <mx-set-time
+    class="section"
+    [type]="textType.sectionTitle" [title]="'SELECT_TIME_TO' | translate"
                [timeSlots]="startTimeSlot"></mx-set-time>
 </div>

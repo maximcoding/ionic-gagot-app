@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {Utils} from '../../../../utils';
 import {TextType} from '../text/text.component';
+import {languageDirection} from '../../../app.component';
 
 @Component({
   selector: 'mx-button-list',
@@ -8,6 +9,7 @@ import {TextType} from '../text/text.component';
   styleUrls: ['./button-list.component.scss'],
 })
 export class ButtonListComponent implements OnInit, OnChanges {
+
 
   @Input() title: string;
   @Input() buttons: string[];
@@ -18,6 +20,7 @@ export class ButtonListComponent implements OnInit, OnChanges {
   previewButtons: string[];
   initialButtons: string[] = [];
   previewNumber = 3;
+  public languageDir = languageDirection;
   public showMore = false;
   public textType = TextType.sectionTitle;
 

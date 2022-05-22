@@ -1,25 +1,27 @@
-<div class="section">
-  <mx-button-list
-    [selected]="property.kitchen"
-    [buttons]="kitchenAmenities"
-    [title]="'KITCHEN' | translate"
-    (onClick)="onKitchenChange($event)">
-  </mx-button-list>
-</div>
+<div dir="{{langDir}}">
+  <div class="section">
+    <mx-button-list
+      [selected]="property.kitchen"
+      [buttons]="kitchenAmenities"
+      [title]="'KITCHEN' | translate"
+      (onClick)="onKitchenChange($event)">
+    </mx-button-list>
+  </div>
 
-<div class="section">
-  <mx-text [type]="textType.sectionTitle" [title]="'BATHROOM1' | translate"></mx-text>
+  <div class="section">
+    <mx-text [type]="textType.sectionTitle" [title]="'BATHROOM1' | translate"></mx-text>
 
-  <mx-item-selection [values]="items"></mx-item-selection>
+    <mx-item-selection [values]="items"></mx-item-selection>
 
-  <mx-button-list [selected]="property.additionalBath"
-                  [buttons]="additionalBath"
-                  [title]="'ADDITIONAL_OPTION' | translate"
-                  (onClick)="onAdditionalChange($event)">
-  </mx-button-list>
-</div>
+    <mx-button-list [selected]="property.additionalBath"
+                    [buttons]="additionalBath"
+                    [title]="'ADDITIONAL_OPTION' | translate"
+                    (onClick)="onAdditionalChange($event)">
+    </mx-button-list>
+  </div>
 
-<div class="section">
-  <mx-text [type]="textType.sectionTitle" [title]="'ADD_PHOTOS_360_PHOTOS' | translate"></mx-text>
-  <mx-upload-media-button [images]="images"></mx-upload-media-button>
+  <div class="section">
+    <mx-text [type]="textType.sectionTitle" [title]="'ADD_PHOTOS_360_PHOTOS' | translate"></mx-text>
+    <mx-upload-media-button [images]="images"></mx-upload-media-button>
+  </div>
 </div>

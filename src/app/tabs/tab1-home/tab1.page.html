@@ -42,14 +42,16 @@
 </ion-content>
 
 
-<ion-modal [isOpen]="isGridOpen"
+<ion-modal
+  dir="{{languageDirection}}"
+  [isOpen]="isGridOpen"
            [swipeToClose]="true"
            [backdropDismiss]="true"
            [breakpoints]="[0.1, 0.5, 1]"
            [initialBreakpoint]="0.5"
            [keyboardClose]="true">
   <ng-template>
-    <ion-row class="flex-row ion-justify-content-end">
+    <ion-row class="flex-row ion-justify-content-start">
       <ion-button
         (click)="closeModal()" fill="clear">
         <ion-icon name="close-outline" size="large" color="dark"></ion-icon>
@@ -63,17 +65,17 @@
           </ion-label>
         </ion-list-header>
         <ion-item>
+          <ion-radio slot="{{checkBoxSlot}}" value="IMAGE_CARDS"></ion-radio>
           <ion-label>{{'IMAGE_CARDS' | translate}}</ion-label>
-          <ion-radio slot="start" value="IMAGE_CARDS"></ion-radio>
         </ion-item>
         <ion-item>
+          <ion-radio slot="{{checkBoxSlot}}" value="IMAGE_LIST"></ion-radio>
           <ion-label>{{'IMAGE_LIST' | translate}}</ion-label>
-          <ion-radio slot="start" value="IMAGE_LIST"></ion-radio>
         </ion-item>
 
         <ion-item>
+          <ion-radio slot="{{checkBoxSlot}}" value="LIST"></ion-radio>
           <ion-label>{{'LIST' | translate}}</ion-label>
-          <ion-radio slot="start" value="LIST"></ion-radio>
         </ion-item>
 
       </ion-radio-group>
@@ -82,12 +84,14 @@
 </ion-modal>
 
 
-<ion-modal [isOpen]="isSortOpen"
-           [breakpoints]="[0.1, 0.5, 1]"
-           [initialBreakpoint]="0.5"
-           [swipeToClose]="true"
-           [backdropDismiss]="true"
-           [keyboardClose]="true">
+<ion-modal
+  dir="{{languageDirection}}"
+  [isOpen]="isSortOpen"
+  [breakpoints]="[0.1, 0.5, 1]"
+  [initialBreakpoint]="0.5"
+  [swipeToClose]="true"
+  [backdropDismiss]="true"
+  [keyboardClose]="true">
   <ng-template>
     <ion-row class="flex-row ion-justify-content-end">
       <ion-button
@@ -105,22 +109,22 @@
 
         <ion-item>
           <ion-label>{{'NEWEST' | translate}}</ion-label>
-          <ion-radio slot="start" value="NEWEST"></ion-radio>
+          <ion-radio slot="{{checkBoxSlot}}" value="NEWEST"></ion-radio>
         </ion-item>
 
         <ion-item>
           <ion-label>{{'OLDEST' | translate}}</ion-label>
-          <ion-radio slot="start" value="OLDEST"></ion-radio>
+          <ion-radio slot="{{checkBoxSlot}}" value="OLDEST"></ion-radio>
         </ion-item>
 
         <ion-item>
           <ion-label>{{'LOWEST' | translate}}</ion-label>
-          <ion-radio slot="start" value="LOWEST"></ion-radio>
+          <ion-radio slot="{{checkBoxSlot}}" value="LOWEST"></ion-radio>
         </ion-item>
 
         <ion-item>
           <ion-label>{{'HIGHEST' | translate}}</ion-label>
-          <ion-radio slot="start" value="HIGHEST"></ion-radio>
+          <ion-radio slot="{{checkBoxSlot}}" value="HIGHEST"></ion-radio>
         </ion-item>
 
         <!--          <ion-item>-->

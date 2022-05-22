@@ -8,6 +8,7 @@ import {PropertyState} from '../shared/enums/propertyState';
 import {CommonAmenitiesEnum, SafetyAmenitiesEnum} from '../shared/enums/amenities.enum';
 import {KitchenEnum} from '../shared/enums/kitchen.enum';
 import {FacilitiesEnum} from '../shared/enums/facilities.enum';
+import {languageDirection} from '../app.component';
 
 @Component({
   selector: 'mx-search-filters',
@@ -16,6 +17,7 @@ import {FacilitiesEnum} from '../shared/enums/facilities.enum';
 })
 export class FiltersComponent implements OnInit {
 
+  public languageDir = languageDirection;
   public InputType = InputType;
   public TextType = TextType;
   public items = [{img: IMAGE_PATH + 'sell.svg', name: "Sell"}, {img: IMAGE_PATH + 'rent.svg', name: "Rent"}]

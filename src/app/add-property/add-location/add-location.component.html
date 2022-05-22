@@ -1,27 +1,28 @@
-<div class="section">
-  <mx-categories
-    [label]="'TITLES.CATEGORIES' | translate"
-    class="ion-padding-vertical" (onClick)="onCategorySelect($event)"></mx-categories>
-</div>
+<div dir="{{langDirection}}">
+  <div class="section">
+    <mx-categories
+      [label]="'TITLES.CATEGORIES' | translate"
+      class="ion-padding-vertical" (onClick)="onCategorySelect($event)"></mx-categories>
+  </div>
 
-<!--   Address & Map-->
-<div class="section">
-  <mx-text [type]="textType.sectionTitle" [title]="'ADDRESS' | translate"></mx-text>
-  <mx-input [value]="property.address"
-            [autocomplete]="true"
-            [type]="'text'"
-            (onChange)="onAddressInput($event)"
-            [icon]="'locate-outline'"
-            [placeholder]="'PLACEHOLDERS.ENTER_ADDRESS' | translate"></mx-input>
-  <mx-map [fullScreen]="false"></mx-map>
-</div>
+  <!--   Address & Map-->
+  <div class="section">
+    <mx-text [type]="textType.sectionTitle" [title]="'ADDRESS' | translate"></mx-text>
+    <mx-input [value]="property.address"
+              [autocomplete]="true"
+              [type]="'text'"
+              (onChange)="onAddressInput($event)"
+              [icon]="'locate-outline'"
+              [placeholder]="'PLACEHOLDERS.ENTER_ADDRESS' | translate"></mx-input>
+    <mx-map [fullScreen]="false"></mx-map>
+  </div>
 
-<div class="section">
-  <mx-button-list
-    [selected]="property.nextTo"
-    [buttons]="nextToList"
-    [preview]="true"
-    [title]="'NEXT_TO' | translate"
-    (onClick)="onNextToClick($event)"></mx-button-list>
+  <div class="section">
+    <mx-button-list
+      [selected]="property.nextTo"
+      [buttons]="nextToList"
+      [preview]="true"
+      [title]="'NEXT_TO' | translate"
+      (onClick)="onNextToClick($event)"></mx-button-list>
+  </div>
 </div>
-

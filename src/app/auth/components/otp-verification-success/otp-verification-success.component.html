@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+
+  <ion-grid class="full-width full-height flex-column">
+
+    <ion-row class="flex-column ion-justify-content-end otp-header">
+      <ion-row class="ion-justify-content-center">
+        <img class="" src="{{IMAGE_PATH + 'success.svg'}}" alt="icon-left"/>
+      </ion-row>
+      <ion-row class="ion-text-center ion-padding">
+        <ion-col size="12">
+          <mx-text [title]="'VERIFICATION_EMAIL_SUCCESS' | translate " [type]="'description'"></mx-text>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="ion-padding">
+      <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
+        <ng-container [ngTemplateOutlet]="loginButton"></ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+<ng-template #loginButton>
+  <mx-login-button routerLink="/tabs" [disabled]="!inputFormCtrl.dirty && !inputFormCtrl.valid"></mx-login-button>
+</ng-template>
+
+
+

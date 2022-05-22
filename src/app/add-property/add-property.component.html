@@ -22,12 +22,15 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true" [scrollY]="true" #pageTop>
+<ion-content
+  [fullscreen]="true" [scrollY]="true" #pageTop>
   <!--  Progress Bar-->
   <div class="section">
-    <mx-progress-bar [steps]="steps"></mx-progress-bar>
+    <mx-progress-bar
+      [steps]="steps"></mx-progress-bar>
   </div>
-  <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+  <router-outlet
+    (activate)="onOutletLoaded($event)"></router-outlet>
   <div class="section">
     <ion-button size="large" (click)="nextPage($event)" expand="block">{{'SAVE' | translate}}</ion-button>
   </div>

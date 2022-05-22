@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {ICON_PATH} from '../../../../global';
 import {languageDirection} from '../../../app.component';
+import {UserAgreementComponent} from '../../../shared/components/user-agreement/user-agreement.component';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'mx-app-signup',
@@ -34,7 +36,9 @@ export class SignupComponent implements OnInit {
     address: new FormControl('', Validators.required),
   });
 
-  constructor(translate: TranslateService) {
+  constructor(
+    private modalCtrl: ModalController,
+    private translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -60,6 +64,18 @@ export class SignupComponent implements OnInit {
         this.img = event1.target.result;
       };
     }
+  }
+
+  public onUserAgreement() {
+    this.modalCtrl.create({
+      component: UserAgreementComponent,
+      componentProps: {}
+    }).then(modal => {
+      modal.present();
+      return modal.onDidDismiss();
+    }).then((res) => {
+
+    });
   }
 
 }

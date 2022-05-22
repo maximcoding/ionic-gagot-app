@@ -5,6 +5,7 @@ import { AuthPage } from './auth.page';
 import { LoginComponent } from './components/login/login.component';
 import { OtpComponent } from './components/otp/otp.component';
 import { SignupComponent } from './components/signup/signup.component';
+import {OtpVerificationSuccessComponent} from './components/otp-verification-success/otp-verification-success.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'otp',
         component: OtpComponent,
+      },
+      {
+        path: 'otp-success',
+        component: OtpVerificationSuccessComponent,
       },
       {
         path: '',

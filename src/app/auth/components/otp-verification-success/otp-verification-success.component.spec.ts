@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AuthorizationComponent } from './authorization.component';
+import { OtpVerificationSuccessComponent } from './otp-verification-success.component';
 
-describe('AuthenticationsPage', () => {
-  let component: AuthorizationComponent;
-  let fixture: ComponentFixture<AuthorizationComponent>;
+describe('OtpVerificationSuccessComponent', () => {
+  let component: OtpVerificationSuccessComponent;
+  let fixture: ComponentFixture<OtpVerificationSuccessComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthorizationComponent ],
+      declarations: [ OtpVerificationSuccessComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AuthorizationComponent);
+    fixture = TestBed.createComponent(OtpVerificationSuccessComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

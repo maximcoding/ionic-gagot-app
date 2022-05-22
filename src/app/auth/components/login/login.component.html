@@ -7,12 +7,13 @@
     <ion-row class="flex-column ion-justify-content-end login-header">
       <ion-row class="ion-text-center">
         <ion-col size="12">
-          <mx-text [title]="'LOGIN' | translate" [type]="'header'"></mx-text>
+          <mx-text [title]="'SIGN_IN' | translate" [type]="'header'"></mx-text>
         </ion-col>
       </ion-row>
       <ion-row class="ion-text-center">
         <ion-col size="12">
-          <mx-text [title]="'SIGN_IN_TO_ACCESS_ACCOUNT' | translate" [type]="'description'"></mx-text>
+          <mx-text
+            [title]="'SIGN_IN_TO_ACCESS_ACCOUNT' | translate" [type]="'description'"></mx-text>
         </ion-col>
       </ion-row>
     </ion-row>
@@ -20,7 +21,12 @@
     <ion-row class="fields-wrapper-phone flex-column">
       <div class="input-with-icon flex-auto ion-justify-content-center flex-row">
         <img class="input-login-icon" src="{{IMAGE_PATH + 'login-field.svg'}}" alt="icon-left"/>
-        <ion-input class="circle-input" placeholder="{{'EMAIL_ADDRESS_OR_PHONE_NUMBER' | translate}}"></ion-input>
+        <ion-input
+          [formControl]=""
+          (ionChange)="inputChange($event)"
+          class="circle-input"
+          placeholder="{{'EMAIL_ADDRESS_OR_PHONE_NUMBER' | translate}}">
+        </ion-input>
       </div>
       <!--      <mx-phone-input class="ion-margin-bottom ion-margin-top"></mx-phone-input>-->
     </ion-row>
@@ -76,7 +82,10 @@
 
 
 <ng-template #loginButton>
-  <mx-login-button routerLink="/auth/otp"></mx-login-button>
+  <mx-login-button
+    [disabled]="!inputFormCtrl.value || inputFormCtrl.invalid"
+    [title]="'LOGIN' | translate"
+    routerLink="/auth/otp"></mx-login-button>
 </ng-template>
 
 <ng-template #createAnAccount>

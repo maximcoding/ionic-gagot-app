@@ -1,5 +1,9 @@
 <button
+  [disabled]="disabled"
   class="circle-button flex-row ion-justify-content-center"
   routerLink="/auth/otp">
   <img alt="login-button" src="{{path + (languageDirection === 'rtl' ? 'login-reverse.svg' : 'login.svg')}}">
 </button>
+<div class="ion-text-center ion-padding ion-justify-content-center">
+  <mx-text [title]="title" [type]="'button'"></mx-text>
+</div>

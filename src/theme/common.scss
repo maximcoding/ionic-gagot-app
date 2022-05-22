@@ -130,7 +130,7 @@ ion-item {
 
   &.ion-item-radio-group {
     padding-inline-end: 0;
-    max-height: 48px;
+    max-height: 40px;
   }
 
   &.ion-item-toggle {
@@ -163,7 +163,14 @@ ion-item {
 }
 
 ion-radio-group {
-  min-height: 56px;
+  min-height: 40px;
+}
+
+ion-list {
+  ion-radio-group {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .field {
@@ -381,7 +388,7 @@ mx-brand-logo-title {
 }
 
 .border-bottom {
-  border-bottom: 3px solid $color-border;
+  border-bottom: 2px solid $color-white;
 }
 
 ion-chip {
@@ -417,7 +424,7 @@ ion-tab-button {
 ion-radio-group {
   display: flex;
   flex: none;
-  min-height: 54px;
+  min-height: 40px;
 
   ion-row {
 
@@ -441,9 +448,6 @@ ion-radio-group {
   }
 }
 
-ion-app {
-  --ion-background-color: linear-gradient(180deg, #AAC7F2 13.54%, #8EA8EC 55.73%);
-}
 
 ion-item {
   --ion-background-color: white;
@@ -503,6 +507,17 @@ ion-item {
   width: 60%;
   left: 46%;
   bottom: 80%;
+
+  &.otp {
+    left: 50%;
+    bottom: 80%;
+  }
+
+  &.signup {
+    width: 44%;
+    left: 58%;
+    bottom: 66%;
+  }
 }
 
 .house-frame-bottom {
@@ -518,9 +533,19 @@ ion-item {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  bottom: 5%;
-  width: 60%;
+  bottom: 8%;
+  width: 55%;
   left: 46%;
+
+  &.otp {
+    left: 50%;
+    bottom: 5%;
+  }
+
+  &.signup {
+    left: 70%;
+    bottom: 5%;
+  }
 }
 
 .circle-input {
@@ -534,6 +559,11 @@ ion-item {
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   color: white;
+
+  &.small-square {
+    text-indent: revert;
+    border-radius: 6px;
+  }
 }
 
 .circle-input:hover,
@@ -578,10 +608,32 @@ ion-item {
 
 
 .login-header {
-  padding-bottom: 20vh;
-  padding-top: 20vh;
+  padding-bottom: 6vh;
+  padding-top: 26vh;
 }
 
 .signup-header {
-  padding-top: 60px;
+  padding-top: 13vh;
 }
+
+.otp-header {
+  padding-top: 26vh;
+}
+
+//ion-app {
+//  --ion-background-color: linear-gradient(180deg, #AAC7F2 13.54%, #8EA8EC 55.73%);
+//}
+
+mx-app-otp,
+mx-otp-verification-success,
+mx-app-signup,
+mx-app-login {
+  --ion-background-color: linear-gradient(180deg, #AAC7F2 13.54%, #8EA8EC 55.73%);
+
+  mx-text {
+    ion-text {
+      color: white !important;
+    }
+  }
+}
+

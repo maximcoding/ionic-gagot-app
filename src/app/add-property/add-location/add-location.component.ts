@@ -4,6 +4,7 @@ import {Utils} from '../../../utils';
 import {NextToEnum} from '../../shared/enums/nexto.num';
 import {TextType} from '../../shared/ui-elements/text/text.component';
 import moment from 'moment';
+import {languageDirection} from '../../app.component';
 
 @Component({
   selector: 'mx-add-location',
@@ -14,6 +15,7 @@ export class AddLocationComponent implements OnInit {
 
   @Input() property: IProperty;
   public textType = TextType;
+  public langDirection = languageDirection;
   public nextToList = Object.values(NextToEnum);
   constructor() {
   }

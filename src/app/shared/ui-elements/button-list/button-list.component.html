@@ -15,7 +15,8 @@
     expand="block"
     size="large"
     fill="outline">
-    <ion-icon slot="start" name="{{showMore ? 'remove-outline': 'add'}}"></ion-icon>
+    <ion-icon slot="{{languageDir === 'rtl' ? 'end' : 'start' }}"
+              name="{{showMore ? 'remove-outline': 'add'}}"></ion-icon>
     <ion-label>{{showMore ? 'HIDE' : 'OTHER' | translate}}
       {{buttons?.length - previewButtons?.length || ''}}
     </ion-label>

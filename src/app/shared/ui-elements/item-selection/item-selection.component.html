@@ -4,10 +4,10 @@
          [class.selected]="isSelected(obj)"
          *ngFor="let obj of values" (click)="itemClicked(obj)">
       <img class="icon" *ngIf="isSelected(obj)" src="{{CHECKBOX_PIC}}" alt="check-image">
-      <p>
-        <mx-text [type]="'label'" [title]="obj.name | translate"></mx-text>
-      </p>
       <img class="button-image" [src]="obj.img">
+      <p>
+        <mx-text [type]="'title'" [title]="obj.name | translate"></mx-text>
+      </p>
     </div>
   </div>
 </div>

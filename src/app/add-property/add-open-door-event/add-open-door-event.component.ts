@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import moment from 'moment';
 import {IProperty} from 'src/app/shared/interfaces/property.interface'
 import {TextType} from '../../shared/ui-elements/text/text.component';
+import {languageDirection} from '../../app.component';
 
 @Component({
   selector: 'mx-add-open-door-event',
@@ -11,6 +12,7 @@ import {TextType} from '../../shared/ui-elements/text/text.component';
 export class AddOpenDoorEventComponent implements OnInit {
   @Input() property: IProperty;
   public textType = TextType;
+  public langDir = languageDirection;
 
   constructor() {
   }

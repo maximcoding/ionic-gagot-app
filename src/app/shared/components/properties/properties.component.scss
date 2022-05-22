@@ -8,8 +8,8 @@ cdk-virtual-scroll-viewport {
   flex-direction: column;
 
   &.margin {
-    margin-top: 56px;
-    margin-bottom: 56px;
+    //margin-top: 56px;
+    //margin-bottom: 56px;
   }
 }
 
@@ -29,6 +29,7 @@ cdk-virtual-scroll-viewport {
 
 .text-value {
   padding-right: 4px;
+  padding-left: 4px;
 }
 
 ion-thumbnail {
@@ -102,7 +103,7 @@ ion-text {
   position: absolute;
 }
 
-//.card-size {
-//  height: 250px;
-//}
+ion-app {
+  --ion-background-color: $color-white !important;
+}
 

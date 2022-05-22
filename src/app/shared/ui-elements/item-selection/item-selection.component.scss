@@ -13,15 +13,15 @@
 
   .button-image {
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.2;
     border-radius: $border-radius;
   }
 
   .selection-button {
-    background: $background-color;
+    background: #edf5ff;
     mix-blend-mode: hard-light;
-    border: 1px solid #716E6E;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid #eaeaea;
+    box-shadow: inset 0px 1px 3px rgb(0 0 0 / 25%);
     height: 160px;
     width: 50%;
     margin: 1vh;
@@ -42,6 +42,7 @@
     }
 
     .icon {
+      color: grey;
       position: absolute;
       z-index: 1;
       top: 10px;
@@ -50,7 +51,8 @@
 
     p {
       position: absolute;
-      left: 20%;
+      left: 49%;
+      bottom: 0;
       transform: translate(-50%, -50%);
     }
   }

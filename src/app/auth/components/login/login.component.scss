@@ -15,13 +15,6 @@ a {
   width: 100%;
 }
 
-.fields-wrapper-phone {
-  //min-height: 218px;
-  padding-bottom: 30px;
-  margin-bottom: 2px;
-  justify-content: flex-end;
-}
-
 .fields-wrapper-email {
   min-height: 220px;
   justify-content: flex-end;
@@ -53,3 +46,9 @@ mx-brand-logo-title {
   position: absolute;
   bottom: 0;
 }
+
+.fields-wrapper-phone {
+  padding-bottom: 6vh;
+  justify-content: flex-end;
+}
+

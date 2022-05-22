@@ -1,146 +1,148 @@
-<div class="section">
-  <mx-text [type]="textType.sectionTitle"
-           [title]="'TITLES.DETAILS' | translate">
-  </mx-text>
+<div dir="{{langDir}}">
+  <div class="section">
+    <mx-text [type]="textType.sectionTitle"
+             [title]="'TITLES.DETAILS' | translate">
+    </mx-text>
 
-  <!--  Square¬-->
-  <mx-input
-    class="full-width"
-    [value]="0"
-    [type]="inputType.number"
-    [min]="0"
-    [max]="10"
-    [label]="'SQUARE_AREA' | translate"
-    (onChange)="onSquareAreaInput($event)"
-    [placeholder]="'PLACEHOLDERS.ENTER_VALUE_IN' | translate : {value: '(meter/feets)'}"></mx-input>
+    <!--  Square¬-->
+    <mx-input
+      class="full-width"
+      [value]="0"
+      [type]="inputType.number"
+      [min]="0"
+      [max]="10"
+      [label]="'SQUARE_AREA' | translate"
+      (onChange)="onSquareAreaInput($event)"
+      [placeholder]="'PLACEHOLDERS.ENTER_VALUE_IN' | translate : {value: '(meter/feets)'}"></mx-input>
 
-  <!--  Year Build-->
-  <mx-dropdown
-    [label]="'YEAR_BUILD' | translate"
-    [value]="dateValue"
-    (onChange)="onYearBuildSelect($event)"
-    [options]="years">
-  </mx-dropdown>
-  <!--  New Construction-->
-  <ion-item class="field ion-item-radio-group flex-column flex-row ion-align-items-center full-width">
-    <ion-label class="label-nowrap">
-      <mx-text [type]="textType.sectionTitle" [title]="'NEW_CONSTRUCTION' | translate"></mx-text>
-    </ion-label>
-    <ion-list class="flex-row mx-checkboxes">
-      <ion-radio-group allow-empty-selection="false"
-                       name="radio-group"
-                       (ionChange)="onNewConstructionSelect($event)"
-                       #radioGroup>
-        <ion-row class="ion-float-right">
-          <ion-item *ngFor="let item of radio_list"
-                    (ionFocus)="radioFocus()"
-                    (ionBlur)="radioBlur()">
-            <ion-label class="mx-label">{{item.text | translate}}</ion-label>
-            <ion-radio name="{{item.name}}"
-                       value="{{item.value}}"
-                       checked="{{item.checked}}"
-                       color="{{item.color}}"
-                       disabled="{{item.disabled}}">
-            </ion-radio>
-          </ion-item>
-        </ion-row>
-      </ion-radio-group>
-    </ion-list>
-  </ion-item>
-  <!--    ON THE LAND-->
-  <ion-item class="field ion-item-toggle">
-    <ion-label>
-      <mx-text [type]="textType.sectionTitle" [title]="'ON_THE_LAND' | translate"></mx-text>
-    </ion-label>
-    <ion-toggle [(ngModel)]="property.onTheLand"></ion-toggle>
-  </ion-item>
+    <!--  Year Build-->
+    <mx-dropdown
+      [label]="'YEAR_BUILD' | translate"
+      [value]="dateValue"
+      (onChange)="onYearBuildSelect($event)"
+      [options]="years">
+    </mx-dropdown>
+    <!--  New Construction-->
+    <ion-item class="field ion-item-radio-group flex-column flex-row ion-align-items-center full-width">
+      <ion-label class="label-nowrap">
+        <mx-text [type]="textType.sectionTitle" [title]="'NEW_CONSTRUCTION' | translate"></mx-text>
+      </ion-label>
+      <ion-list class="flex-row mx-checkboxes">
+        <ion-radio-group allow-empty-selection="false"
+                         name="radio-group"
+                         (ionChange)="onNewConstructionSelect($event)"
+                         #radioGroup>
+          <ion-row class="ion-float-right">
+            <ion-item *ngFor="let item of radio_list"
+                      (ionFocus)="radioFocus()"
+                      (ionBlur)="radioBlur()">
+              <ion-label class="mx-label">{{item.text | translate}}</ion-label>
+              <ion-radio name="{{item.name}}"
+                         value="{{item.value}}"
+                         checked="{{item.checked}}"
+                         color="{{item.color}}"
+                         disabled="{{item.disabled}}">
+              </ion-radio>
+            </ion-item>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
+    </ion-item>
+    <!--    ON THE LAND-->
+    <ion-item class="field ion-item-toggle">
+      <ion-label>
+        <mx-text [type]="textType.sectionTitle" [title]="'ON_THE_LAND' | translate"></mx-text>
+      </ion-label>
+      <ion-toggle [(ngModel)]="property.onTheLand"></ion-toggle>
+    </ion-item>
 
-  <!--   LAST FLOOR-->
-  <ion-item class="field ion-item-toggle">
-    <ion-label>
-      <mx-text [type]="textType.sectionTitle" [title]="'LAST_FLOOR' | translate"></mx-text>
-    </ion-label>
-    <ion-toggle
-      [checked]="!!property.lastFloor"
-      (ionChange)="onLastFloor($event)"></ion-toggle>
-  </ion-item>
+    <!--   LAST FLOOR-->
+    <ion-item class="field ion-item-toggle">
+      <ion-label>
+        <mx-text [type]="textType.sectionTitle" [title]="'LAST_FLOOR' | translate"></mx-text>
+      </ion-label>
+      <ion-toggle
+        [checked]="!!property.lastFloor"
+        (ionChange)="onLastFloor($event)"></ion-toggle>
+    </ion-item>
 
-  <mx-input
-    *ngIf="!property.lastFloor"
-    class="full-width"
-    [label]="'FLOOR' | translate"
-    [value]="property.floor"
-    (onChange)="onFloorChange($event)"
-    [placeholder]="'FLOOR' | translate"></mx-input>
+    <mx-input
+      *ngIf="!property.lastFloor"
+      class="full-width"
+      [label]="'FLOOR' | translate"
+      [value]="property.floor"
+      (onChange)="onFloorChange($event)"
+      [placeholder]="'FLOOR' | translate"></mx-input>
 
-  <mx-textarea
-    [value]="property.description"
-    (onChange)="onDescriptionInput($event)"
-    [inputmode]="'text'">
-  </mx-textarea>
-</div>
+    <mx-textarea
+      [value]="property.description"
+      (onChange)="onDescriptionInput($event)"
+      [inputmode]="'text'">
+    </mx-textarea>
+  </div>
 
-<div class="section">
-  <mx-text [type]="textType.sectionTitle"
-           [title]="'TITLES.ROOMS' | translate">
-  </mx-text>
-  <!--  BEDROOMS-->
-  <mx-plus-minus-toggle class="full-width"
-                        (onChange)="onBedroomsChange($event)"
-                        [value]="property.floor"
-                        [max]="10"
-                        [title]="'BEDROOMS' | translate">
-  </mx-plus-minus-toggle>
+  <div class="section">
+    <mx-text [type]="textType.sectionTitle"
+             [title]="'TITLES.ROOMS' | translate">
+    </mx-text>
+    <!--  BEDROOMS-->
+    <mx-plus-minus-toggle class="full-width"
+                          (onChange)="onBedroomsChange($event)"
+                          [value]="property.floor"
+                          [max]="10"
+                          [title]="'BEDROOMS' | translate">
+    </mx-plus-minus-toggle>
 
-  <!--  BATHROOMS-->
-  <mx-plus-minus-toggle class="full-width"
-                        (onChange)="onBathroomsChange($event)"
-                        [value]="property.floor"
-                        [max]="5"
-                        [title]="'BATHROOMS' | translate">
-  </mx-plus-minus-toggle>
-  <!--  BALCONIES -->
-  <mx-plus-minus-toggle class="full-width"
-                        (onChange)="onBalconiesChange($event)"
-                        [value]="property.floor"
-                        [max]="3"
-                        [title]="'BALCONIES' | translate">
-  </mx-plus-minus-toggle>
-</div>
+    <!--  BATHROOMS-->
+    <mx-plus-minus-toggle class="full-width"
+                          (onChange)="onBathroomsChange($event)"
+                          [value]="property.floor"
+                          [max]="5"
+                          [title]="'BATHROOMS' | translate">
+    </mx-plus-minus-toggle>
+    <!--  BALCONIES -->
+    <mx-plus-minus-toggle class="full-width"
+                          (onChange)="onBalconiesChange($event)"
+                          [value]="property.floor"
+                          [max]="3"
+                          [title]="'BALCONIES' | translate">
+    </mx-plus-minus-toggle>
+  </div>
 
-<!--KITCHEN AMENITIES-->
-<div class="section">
-  <mx-button-list
-    [selected]="property.kitchen"
-    [buttons]="kitchenAmenities"
-    [title]="'KITCHEN' | translate"
-    (onClick)="onKitchenChange($event)"></mx-button-list>
-</div>
+  <!--KITCHEN AMENITIES-->
+  <div class="section">
+    <mx-button-list
+      [selected]="property.kitchen"
+      [buttons]="kitchenAmenities"
+      [title]="'KITCHEN' | translate"
+      (onClick)="onKitchenChange($event)"></mx-button-list>
+  </div>
 
-<!--AMENITIES-->
-<div class="section">
-  <mx-button-list
-    [selected]="property.amenities"
-    [buttons]="amenities"
-    [preview]="true"
-    [title]="'AMENITIES' | translate"
-    (onClick)="onAmenitiesClick($event)"></mx-button-list>
-</div>
+  <!--AMENITIES-->
+  <div class="section">
+    <mx-button-list
+      [selected]="property.amenities"
+      [buttons]="amenities"
+      [preview]="true"
+      [title]="'AMENITIES' | translate"
+      (onClick)="onAmenitiesClick($event)"></mx-button-list>
+  </div>
 
-<div class="section">
-  <mx-button-list
-    [selected]="property.facilities"
-    [buttons]="facilitiesList"
-    [preview]="true"
-    [title]="'FACILITIES' | translate"
-    (onClick)="onFacilitiesClick($event)"></mx-button-list>
-</div>
+  <div class="section">
+    <mx-button-list
+      [selected]="property.facilities"
+      [buttons]="facilitiesList"
+      [preview]="true"
+      [title]="'FACILITIES' | translate"
+      (onClick)="onFacilitiesClick($event)"></mx-button-list>
+  </div>
 
-<!--SAFETY AMENITIES-->
-<div class="section">
-  <mx-button-list
-    [selected]="property.safetyAmenities"
-    [buttons]="safetyAmenitiesList"
-    [title]="'SAFETY_AMENITIES' | translate"
-    (onClick)="onSafetyAmenitiesClick($event)"></mx-button-list>
+  <!--SAFETY AMENITIES-->
+  <div class="section">
+    <mx-button-list
+      [selected]="property.safetyAmenities"
+      [buttons]="safetyAmenitiesList"
+      [title]="'SAFETY_AMENITIES' | translate"
+      (onClick)="onSafetyAmenitiesClick($event)"></mx-button-list>
+  </div>
 </div>

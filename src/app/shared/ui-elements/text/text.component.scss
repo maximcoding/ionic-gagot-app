@@ -2,7 +2,7 @@
 
 .text {
   font-family: $font-family;
-  color: white;
+  color: var(--ion-color-primary);
 
   &.header {
     font-weight: $font-weight-600;
@@ -23,11 +23,16 @@
     font-weight: 400;
     font-size: $font-size-normal;
     flex: 1;
+    white-space: nowrap;
+
+    &.login {
+      color: $color-white;
+    }
   }
 
   &.link {
     font-weight: 500;
-    color: var(--ion-color-secondary);
+    color: var(--ion-color-secondary) !important;
     font-size: $font-size-normal;
     flex: 1;
   }
@@ -42,6 +47,5 @@
     font-weight: $font-weight-500;
   }
 }
-
 
 

@@ -11,7 +11,7 @@
 
 
 <cdk-virtual-scroll-viewport [class.margin]="!viewType" itemSize="{{items.length}}">
-  <ion-list>
+  <ion-list dir="{{languageDirection}}">
     <ion-card class="card-size ion-no-margin ion-margin-bottom"
               *cdkVirtualFor="let item of items" button (click)="goToPropertyDetails(item)">
       <ng-container [ngTemplateOutlet]="imageList" [ngTemplateOutletContext]="{item: item}"></ng-container>
@@ -201,9 +201,8 @@
 <ng-template #floor let-item="item">
   <ion-col class="flex-row ion-align-items-center">
     <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <mx-text class="text-value" [type]="'description'"
-             [title]="item.floor"></mx-text>
-    <mx-text [type]="'description'" [title]="'FLOOR' | translate"></mx-text>
+    <mx-text class="text-value" [type]="'description'" [title]="item.floor"></mx-text>
+    <mx-text class="text" [type]="'description'" [title]="'FLOOR' | translate"></mx-text>
   </ion-col>
 </ng-template>
 

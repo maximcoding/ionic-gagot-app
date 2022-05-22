@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IProperty} from 'src/app/shared/interfaces/property.interface'
 import {TextType} from '../../shared/ui-elements/text/text.component';
 import {IMAGE_PLACEHOLDER} from '../../../global';
+import {languageDirection} from '../../app.component';
 
 @Component({
   selector: 'mx-add-media',
@@ -11,6 +12,7 @@ import {IMAGE_PLACEHOLDER} from '../../../global';
 export class AddMediaComponent implements OnInit {
   @Input() property: IProperty;
   public textType = TextType;
+  public langDir = languageDirection;
 
   public images = [{
     name: 'hall', path: IMAGE_PLACEHOLDER, isLoading: false

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ICON_PATH} from '../../../../global';
 import {languageDirection} from '../../../app.component';
 
@@ -11,7 +11,8 @@ export class LoginButtonComponent implements OnInit {
 
   public path = ICON_PATH;
   public languageDirection = languageDirection;
-
+  @Input() title: string;
+  @Input() disabled: boolean;
   constructor() {
   }
 

@@ -1,19 +1,18 @@
 <ion-content [fullscreen]="true">
 
-  <ion-grid class="ion-padding full-width full-height flex-column">
-
-    <mx-brand-logo-title class="brand-padding-top" [title]="'VERIFICATION' | translate"></mx-brand-logo-title>
-
-    <ion-row class="fields-wrapper flex-column ion-padding-top">
+  <ion-grid class="full-width full-height flex-column">
+    <img alt="house-frame-top" class="house-frame-top otp" src="{{ICON_PATH + 'house.svg'}}"/>
+    <img alt="house-frame-bottom" class="house-frame-bottom otp" src="{{ICON_PATH + 'house.svg'}}"/>
+    <ion-row class="flex-column ion-justify-content-end otp-header">
       <ion-row class="ion-text-center">
         <ion-col size="12">
-          <mx-text [title]="'' | translate" [type]="'header'"></mx-text>
+          <mx-text [title]="'VERIFICATION' | translate" [type]="'header'"></mx-text>
         </ion-col>
+      </ion-row>
+      <ion-row class="ion-text-center ion-padding">
         <ion-col size="12">
-          <mx-text [title]="'WE_HAVE_SENT_THE_CODE' | translate" [type]="'description'"></mx-text>
-        </ion-col>
-        <ion-col size="12">
-          {{phoneNumber}}
+          <mx-text [title]="'WE_HAVE_SENT_THE_CODE' | translate " [type]="'description'"></mx-text>
+          <mx-text class="ion-padding-top" dir="'ltr'" [title]="phoneNumber" [type]="'title'"></mx-text>
         </ion-col>
       </ion-row>
     </ion-row>
@@ -21,7 +20,8 @@
     <ion-row class="ion-margin">
       <ion-col size="12" class="ion-text-center flex-row ion-align-items-end">
         <ion-col size="2" class="ion-text-center ion-justify-content-center ion-align-items-center">
-          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+          <ion-input class="circle-input small-square
+          ion-no-padding ion-no-margin input-border ion-text-center"
                      #otp1
                      required="true"
                      maxLength="1"
@@ -29,16 +29,16 @@
           </ion-input>
         </ion-col>
         <ion-col size="2">
-          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+          <ion-input class="circle-input small-square
+          ion-no-padding ion-no-margin input-border ion-text-center"
                      #otp2
                      required="true"
                      maxLength="1"
-                     (keyup)="otpController($event, otp3, otp1)"
-          >
+                     (keyup)="otpController($event, otp3, otp1)">
           </ion-input>
         </ion-col>
         <ion-col size="2">
-          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+          <ion-input class="circle-input small-square ion-no-padding ion-no-margin input-border ion-text-center"
                      #otp3
                      required="true"
                      maxLength="1"
@@ -47,7 +47,7 @@
           </ion-input>
         </ion-col>
         <ion-col size="2">
-          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+          <ion-input class="circle-input small-square ion-no-padding ion-no-margin input-border ion-text-center"
                      #otp4
                      required="true"
                      maxLength="1"
@@ -56,16 +56,15 @@
           </ion-input>
         </ion-col>
         <ion-col size="2">
-          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+          <ion-input class="circle-input small-square ion-no-padding ion-no-margin input-border ion-text-center"
                      #otp5
                      required="true"
                      maxLength="1"
-                     (keyup)="otpController($event, otp6, otp4)"
-          >
+                     (keyup)="otpController($event, otp6, otp4)">
           </ion-input>
         </ion-col>
         <ion-col size="2">
-          <ion-input class="ion-no-padding ion-no-margin input-border ion-text-center"
+          <ion-input class="circle-input small-square ion-no-padding ion-no-margin input-border ion-text-center"
                      #otp6
                      required="true"
                      maxLength="1"
@@ -75,9 +74,15 @@
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <ion-row class="ion-text-center ion-padding">
+      <ion-col size="12">
+<!--        <mx-text title="{{'ENTER_DIGITS_CODE' | translate}}" [type]="'description'"></mx-text>-->
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-padding">
       <ion-col class="flex-auto ion-justify-content-center flex-row" size="12">
-        <ng-container [ngTemplateOutlet]="loginButton"></ng-container>
+        <ng-container [ngTemplateOutlet]="submitButton"></ng-container>
       </ion-col>
     </ion-row>
 
@@ -90,11 +95,11 @@
         </a>
       </ion-col>
     </ion-row>
-
   </ion-grid>
 
 </ion-content>
 
-<ng-template #loginButton>
-  <mx-login-button routerLink="/tabs"></mx-login-button>
+
+<ng-template #submitButton>
+  <mx-login-button routerLink="/tabs" [title]="'SUBMIT' | translate"></mx-login-button>
 </ng-template>

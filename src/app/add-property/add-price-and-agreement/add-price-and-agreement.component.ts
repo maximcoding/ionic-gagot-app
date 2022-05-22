@@ -3,6 +3,7 @@ import {IProperty} from 'src/app/shared/interfaces/property.interface'
 import {TextType} from '../../shared/ui-elements/text/text.component';
 import {IMAGE_PATH} from '../../../global';
 import {InputType} from '../../shared/ui-elements/input/input.component';
+import {languageDirection} from '../../app.component';
 
 @Component({
   selector: 'mx-add-price-and-agreement',
@@ -14,6 +15,7 @@ export class AddPriceAndAgreementComponent implements OnInit {
 
   public textType = TextType;
   public inputType = InputType;
+  public langDir = languageDirection
 
   constructor() {
   }
