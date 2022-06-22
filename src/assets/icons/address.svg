@@ -1,5 +1,8 @@
-<svg width="19px" height="16px" viewBox="0 0 19 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg
+  height="24px"
+  width="27px"
+  viewBox="0 0 19 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Shape</title>
   <defs>
     <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">

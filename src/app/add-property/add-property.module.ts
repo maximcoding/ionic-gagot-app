@@ -24,6 +24,9 @@ import {MapModule} from '../map/map.module';
     AddMediaComponent,
     AddPriceAndAgreementComponent,
     AddOpenDoorEventComponent],
+  exports: [
+    AddPriceAndAgreementComponent
+  ],
   imports: [
     AddPropertyRoutingModule,
     FormsModule,
@@ -31,7 +34,7 @@ import {MapModule} from '../map/map.module';
     IonicModule,
     CommonModule,
     SharedModule,
-    MapModule,
+    MapModule
   ]
 })
 export class AddPropertyModule {

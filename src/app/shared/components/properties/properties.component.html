@@ -11,7 +11,7 @@
 
 
 <cdk-virtual-scroll-viewport [class.margin]="!viewType" itemSize="{{items.length}}">
-  <ion-list dir="{{languageDirection}}">
+  <ion-list class="list-with-padding" dir="{{languageDirection}}">
     <ion-card class="card-size ion-no-margin ion-margin-bottom"
               *cdkVirtualFor="let item of items" button (click)="goToPropertyDetails(item)">
       <ng-container [ngTemplateOutlet]="imageList" [ngTemplateOutletContext]="{item: item}"></ng-container>

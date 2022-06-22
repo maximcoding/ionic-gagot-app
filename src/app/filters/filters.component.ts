@@ -4,11 +4,11 @@ import {TextType} from '../shared/ui-elements/text/text.component';
 import {IMAGE_PATH} from '../../global';
 import {NextToEnum} from '../shared/enums/nexto.num';
 import {CategoryEnum} from '../shared/enums/categoryEnum';
-import {PropertyState} from '../shared/enums/propertyState';
 import {CommonAmenitiesEnum, SafetyAmenitiesEnum} from '../shared/enums/amenities.enum';
 import {KitchenEnum} from '../shared/enums/kitchen.enum';
 import {FacilitiesEnum} from '../shared/enums/facilities.enum';
 import {languageDirection} from '../app.component';
+import {PropertyState} from '../shared/enums';
 
 @Component({
   selector: 'mx-search-filters',

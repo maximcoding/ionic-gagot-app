@@ -36,6 +36,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {PhoneInputComponent} from './ui-elements/phone-input/phone-input.component';
 import {LoginButtonComponent} from './ui-elements/circle-button/login-button.component';
+import {MapModule} from '../map/map.module';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import {LoginButtonComponent} from './ui-elements/circle-button/login-button.com
     MatSelectModule,
     ReactiveFormsModule,
     MatIconModule,
+    MapModule
   ],
   providers: [],
   bootstrap: [],

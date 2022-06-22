@@ -22,13 +22,13 @@
       (onChange)="onYearBuildSelect($event)"
       [options]="years">
     </mx-dropdown>
-    <!--  New Construction-->
+    <!--  New Construction-->b
     <ion-item class="field ion-item-radio-group flex-column flex-row ion-align-items-center full-width">
       <ion-label class="label-nowrap">
         <mx-text [type]="textType.sectionTitle" [title]="'NEW_CONSTRUCTION' | translate"></mx-text>
       </ion-label>
       <ion-list class="flex-row mx-checkboxes">
-        <ion-radio-group allow-empty-selection="false"
+        <ion-radio-group class="property-details" allow-empty-selection="false"
                          name="radio-group"
                          (ionChange)="onNewConstructionSelect($event)"
                          #radioGroup>
@@ -96,14 +96,14 @@
     <!--  BATHROOMS-->
     <mx-plus-minus-toggle class="full-width"
                           (onChange)="onBathroomsChange($event)"
-                          [value]="property.floor"
+                          [value]="property.bathroom"
                           [max]="5"
                           [title]="'BATHROOMS' | translate">
     </mx-plus-minus-toggle>
     <!--  BALCONIES -->
     <mx-plus-minus-toggle class="full-width"
                           (onChange)="onBalconiesChange($event)"
-                          [value]="property.floor"
+                          [value]="property.balcony"
                           [max]="3"
                           [title]="'BALCONIES' | translate">
     </mx-plus-minus-toggle>

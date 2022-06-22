@@ -1,4 +1,4 @@
-<svg width="20px" height="17px" viewBox="0 0 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg"
+<svg width="22px" height="20px" viewBox="0 0 20 17" version="1.1" xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Path</title>
   <defs>
@@ -67,7 +67,7 @@
           </mask>
           <g id="Rectangle">
             <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-5"></use>
-            <use fill="#F5F5F5" fill-rule="evenodd" xlink:href="#path-5"></use>
+            <use fill="white" fill-rule="evenodd" xlink:href="#path-5"></use>
           </g>
         </g>
         <g id="features" transform="translate(41.492711, 267.000000)">

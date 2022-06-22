@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./add-property/add-property.module').then(m => m.AddPropertyModule)
   },
   {
+    path: 'new',
+    loadChildren: () => import('./add-property/add-property.module').then(m => m.AddPropertyModule)
+  },
+  {
     path: 'details',
     component: PropertyDetailsComponent
   },

@@ -9,7 +9,7 @@ import {PAUSE_PIC, STATIC_PIC} from '../../../../global';
 export class AudioTrackComponent implements OnInit {
 
   @Input() title: string;
-
+  @Input() audioFile: any;
   constructor() {
   }
 

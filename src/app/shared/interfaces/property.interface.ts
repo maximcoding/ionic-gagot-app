@@ -1,12 +1,12 @@
 import {CommonAmenitiesEnum, SafetyAmenitiesEnum} from '../enums/amenities.enum';
 import {NextToEnum} from '../enums/nexto.num';
-import {PropertyState} from '../enums/propertyState';
 import {FacilitiesEnum} from '../enums/facilities.enum';
 import {IUser} from './user.interface';
 import {IVisit} from './visit.interface';
 import {KitchenEnum} from '../enums/kitchen.enum';
 import {BathEnum} from '../enums/bath.enum';
 import {CategoryEnum} from '../enums/categoryEnum';
+import {PropertyState, PropertyStatus} from '../enums';
 
 export enum PropertyType {
   Sell = 'sell',
@@ -36,6 +36,7 @@ export interface IProperty extends IPropertyPreview {
   additionalBath?: BathEnum[];
   description: string;
   isApproved: boolean;
+  status?: PropertyStatus;
   authorID: number;
   category: CategoryEnum;
   priceUp: boolean,
@@ -48,6 +49,7 @@ export interface IProperty extends IPropertyPreview {
   balcony?: number;
   built?: number;
   phone?: string;
+  arnona?: number;
   agentID?: number;
   photo?: string;
   photoURLs?: string;

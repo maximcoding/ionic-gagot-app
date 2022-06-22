@@ -23,9 +23,9 @@
     font-weight: 400;
     font-size: $font-size-normal;
     flex: 1;
-    white-space: nowrap;
 
     &.login {
+      white-space: nowrap;
       color: $color-white;
     }
   }

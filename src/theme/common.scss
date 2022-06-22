@@ -22,6 +22,12 @@ a {
   flex-direction: row;
 }
 
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -162,16 +168,6 @@ ion-item {
   //background: #75aed0;
 }
 
-ion-radio-group {
-  min-height: 40px;
-}
-
-ion-list {
-  ion-radio-group {
-    display: flex;
-    flex-direction: column;
-  }
-}
 
 .field {
   border: 1px solid var(--ion-color-primary);
@@ -218,7 +214,7 @@ ion-textarea {
 
 .image-progress-bar {
   display: flex;
-  background-color: #EEEEEF;
+  //background-color: #EEEEEF;
 }
 
 .agreementDiv {
@@ -278,13 +274,13 @@ hr {
 }
 
 .audioImg {
-  margin: 1rem 0 1rem 0;
+  //margin: 1rem 0 1rem 0;
   border-radius: $border-radius;
-  @extend .border-element;
+  //@extend .border-element;
   position: relative;
 
   img {
-    margin-left: 1rem;
+    //margin-left: 1rem;
   }
 
   p {
@@ -421,28 +417,44 @@ ion-tab-button {
   background: white;
 }
 
-ion-radio-group {
-  display: flex;
-  flex: none;
-  min-height: 40px;
 
-  ion-row {
-
-    .item {
+ion-modal {
+  ion-list {
+    ion-radio-group {
       display: flex;
-      --padding-start: 5px;
-      --inner-padding-end: 5px !important;
+      flex-direction: column;
+    }
+  }
+}
 
-      .item-native {
-        min-height: 56px !important;
-      }
+ion-radio-group {
+  min-height: 40px;
+}
 
-      ion-label {
+ion-radio-group {
+  &.property-details {
+    display: flex;
+    flex: none;
+    min-height: 40px;
 
-      }
+    ion-row {
 
-      ion-radio {
+      .item {
+        display: flex;
+        --padding-start: 5px;
+        --inner-padding-end: 5px !important;
 
+        .item-native {
+          min-height: 56px !important;
+        }
+
+        ion-label {
+
+        }
+
+        ion-radio {
+
+        }
       }
     }
   }
@@ -477,8 +489,9 @@ ion-item {
   border-radius: 50%;
 
   img {
-    padding: 0.5vh;
+    padding: 8px;
   }
+
 }
 
 .circle-button:focus,
@@ -549,7 +562,12 @@ ion-item {
 }
 
 .circle-input {
-  text-indent: 40px;
+  text-indent: 50px;
+
+  :dir(rtl) {
+    text-indent: 40px;
+  }
+
   box-sizing: border-box;
   width: 90%;
   height: 60px;
@@ -636,4 +654,11 @@ mx-app-login {
     }
   }
 }
+
+mx-login-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 

@@ -5,11 +5,11 @@ import {AddPropertyComponent} from '../add-property/add-property.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'map',
     component: MapComponent,
   },
   {
-    path: '',
+    path: 'map',
     redirectTo: '',
     pathMatch: 'full'
   },

@@ -26,9 +26,17 @@ export enum PropertyCategoryEnum {
   Land,
 }
 
-export enum PropertyStatusEnum {
-  ForSale,
-  ForRent,
+export enum PropertyStatus {
+  draft = 'draft',
+  opened = 'opened',
+  approved = 'approved',
+  closed = 'closed',
+  deleted = 'deleted',
+}
+
+export enum PropertyState {
+  Selling = 'selling',
+  Renting = 'renting',
 }
 
 export enum PlatformEum {

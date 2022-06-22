@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges} from '@angular/core';
 import {Utils} from '../../../../utils';
 import {CHECKBOX_PIC} from '../../../../global';
-import {PropertyState} from '../../enums/propertyState';
+import {PropertyState} from '../../enums';
 
 @Component({
   selector: 'mx-item-selection',
