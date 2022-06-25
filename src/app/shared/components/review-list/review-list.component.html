@@ -1,0 +1,30 @@
+<ion-content class="full-height review-list-container" [scrollEvents]="true">
+  <ion-list>
+    <ion-item *ngFor="let review of data" class="ion-margin-bottom ion-no-margin ion-no-padding">
+      <!--          <ion-avatar slot="start" class="">-->
+      <!--            <img src="{{FLATICON_PATH + './user.svg'}}"/>-->
+      <!--          </ion-avatar>-->
+      <ion-label class="ion-no-padding ion-no-margin">
+        <div class="flex-row-center">
+          <ion-row class="flex-row-center ion-no-margin ion-no-padding flex-1">
+            <mx-text class="ion-padding-end" [title]="review.name" [type]="'label'"></mx-text>
+            <mx-rating [rating]="review.rating" class="flex-1"></mx-rating>
+            <mx-text class="" [title]="review.date" [type]="'tiny'"></mx-text>
+          </ion-row>
+        </div>
+        <ion-text class="review-text">{{review.text}}</ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<mx-textarea
+  [value]="newValue"
+  [placeholder]="placeholder | translate"
+  (onChange)="inputChanged($event)">
+</mx-textarea>
+<ion-button
+  expand="block"
+  [disabled]="newValue.trim() === ''"
+  (click)="clicked($event)">
+  {{'ADD' | translate}}
+</ion-button>

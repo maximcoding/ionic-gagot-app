@@ -1,5 +1,6 @@
 <ion-text (click)="clickHandler($event)"
           class="text {{type}}"
+          [class.selected]="selected"
           [style.color]="color">
   {{title}}
 </ion-text>

@@ -1,8 +1,11 @@
 <div dir="{{langDirection}}">
+
   <div class="section">
     <mx-categories
       [label]="'TITLES.CATEGORIES' | translate"
-      class="ion-padding-vertical" (onClick)="onCategorySelect($event)"></mx-categories>
+      class="ion-padding-vertical"
+      (onClick)="onCategorySelect($event)">
+    </mx-categories>
   </div>
 
   <!--   Address & Map-->

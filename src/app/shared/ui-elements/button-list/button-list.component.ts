@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange,
 import {Utils} from '../../../../utils';
 import {TextType} from '../text/text.component';
 import {languageDirection} from '../../../app.component';
+import {FLATICON_PATH} from '../../../../global';
 
 @Component({
   selector: 'mx-button-list',
@@ -23,6 +24,7 @@ export class ButtonListComponent implements OnInit, OnChanges {
   public languageDir = languageDirection;
   public showMore = false;
   public textType = TextType.sectionTitle;
+  public FLATICON_PATH = FLATICON_PATH;
 
   constructor() {
   }

@@ -37,9 +37,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {PhoneInputComponent} from './ui-elements/phone-input/phone-input.component';
 import {LoginButtonComponent} from './ui-elements/circle-button/login-button.component';
 import {MapModule} from '../map/map.module';
+import {RatingComponent} from './ui-elements/rating/rating.component';
+import {ReviewListComponent} from './components/review-list/review-list.component';
 
 @NgModule({
   declarations: [
+    ReviewListComponent,
+    RatingComponent,
     PropertiesComponent,
     ProgressBarComponent,
     TextComponent,

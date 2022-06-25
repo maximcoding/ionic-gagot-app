@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IMAGE_PATH} from '../../../../global';
+import {FLATICON_PATH, IMAGE_PATH} from '../../../../global';
 import {BathEnum} from '../../enums/bath.enum';
 import {MeasurementEnum} from '../../enums/measurement.enum';
 import {IProperty} from '../../interfaces/property.interface';
@@ -30,6 +30,7 @@ export class PropertiesComponent implements OnInit {
   @Input() public viewType: PropertiesModalType;
   public languageDirection = languageDirection;
   public Measurement = MeasurementEnum;
+  public FLATICON_PATH = FLATICON_PATH;
   public userSettings: IUser = {
     appIdentifier: '',
     createdAt: new Date(),
@@ -98,19 +99,22 @@ export class PropertiesComponent implements OnInit {
   }
 
   public items = [{
+    rating: 4,
     ...this.property,
     id: 1,
-    img: IMAGE_PATH + 'img.png',
+    images: ['https://picsum.photos/400/300'],
     name: BathEnum.BathCabin
   }, {
     id: 2,
     ...this.property,
     priceUp: false,
+    images: ['https://picsum.photos/400/300'],
     priceDown: true,
     updatedAt: new Date('2021'),
     state: [PropertyState.Selling],
     nextTo: [NextToEnum.Sea, NextToEnum.Garden],
     img: IMAGE_PATH + 'img.png',
+    rating: 4,
     name: BathEnum.BathCabin
   }, {
     id: 3,
@@ -118,6 +122,8 @@ export class PropertiesComponent implements OnInit {
     floor: 1,
     bedroom: 1,
     bathroom: 1,
+    images: ['https://picsum.photos/400/300'],
+    rating: 3.5,
     priceUp: false,
     priceDown: true,
     state: [PropertyState.Renting],
@@ -129,18 +135,22 @@ export class PropertiesComponent implements OnInit {
   }, {
     id: 4,
     ...this.property,
+    images: ['https://picsum.photos/400/300'],
+    rating: 2,
     img: IMAGE_PATH + 'img.png',
     name: BathEnum.Jacuzzi
   },
     {
       id: 5,
       ...this.property,
-      img: IMAGE_PATH + 'img.png',
-      name: BathEnum.Bath
+      images: [IMAGE_PATH + 'img.png'],
+      name: BathEnum.Bath,
+      rating: 5,
     }, {
       id: 6,
       ...this.property,
-      img: IMAGE_PATH + 'img.png',
+      rating: 3.5,
+      images: ['https://picsum.photos/400/300'],
       name: BathEnum.Washbasins
     }];
 

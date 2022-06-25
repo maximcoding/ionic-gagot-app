@@ -27,28 +27,27 @@ ion-segment {
 
 ion-slide {
   width: 100%;
+  height: auto;
   min-height: 200px;
 }
 
 .swiper-slide img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
+
+.fab-button {
+  margin-top: 14px;
+  ion-icon {
+    color: greenyellow;
+  }
+}
 
 .videoPlayerContainer {
-  padding-right: 0px !important;
-  padding-left: 0px !important;
-}
-
-video {
-  width: 100%;
-  min-width: 100%;
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: middle;
-  min-height: 200px;
-  height: 100%;
+  min-height: 484px;
+  width: 100% !important;
+  height: auto !important;
 }
 
 .videoPlayerControls {
@@ -67,13 +66,12 @@ video {
 
 .open-door-events-list {
   padding: 4px;
-  border-radius: $border-radius;
-  border: 1px solid $color-border;
   overflow-y: scroll;
-  height: 180px;
+  height: 250px;
 
   ion-button {
     border-bottom: 1px solid $color-border;
+
     ion-row {
       //border-bottom: 1px solid $color-border;
     }
@@ -89,4 +87,10 @@ video {
   border-radius: 10px;
   color: $color-white;
   background-color: var(--ion-color-success);
+}
+
+.text-value {
+  font-family: $font-family;
+  font-size: $font-size-normal;
+  color: $color-gray-dark;
 }

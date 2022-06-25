@@ -22,6 +22,7 @@ export interface IPropertyPreview {
   type: PropertyType;
   createdAt?: Date;
   updatedAt?: Date;
+  entryDay?: Date;
   price: number;
   place: string;
   photoURLs?: string;

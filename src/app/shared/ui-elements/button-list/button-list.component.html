@@ -4,9 +4,15 @@
   </ion-label>
   <div class="button-list flex-wrap ion-padding-vertical">
     <ion-button *ngFor="let obj of previewButtons"
+                size="normal"
                 (click)="onButtonClick(obj)"
                 [color]="isSelected(obj) ? 'primary' : 'light'">
-      {{obj | translate}}
+      <img class="padding-right" src="{{FLATICON_PATH + '/'+ obj + '.svg'}}"/>
+      <ion-label>
+        <mx-text
+          [selected]="isSelected(obj)"
+          [type]="'label'" [title]="obj | translate"></mx-text>
+      </ion-label>
     </ion-button>
   </div>
   <ion-button

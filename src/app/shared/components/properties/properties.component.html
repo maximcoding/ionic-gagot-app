@@ -12,7 +12,7 @@
 
 <cdk-virtual-scroll-viewport [class.margin]="!viewType" itemSize="{{items.length}}">
   <ion-list class="list-with-padding" dir="{{languageDirection}}">
-    <ion-card class="card-size ion-no-margin ion-margin-bottom"
+    <ion-card class="card-size"
               *cdkVirtualFor="let item of items" button (click)="goToPropertyDetails(item)">
       <ng-container [ngTemplateOutlet]="imageList" [ngTemplateOutletContext]="{item: item}"></ng-container>
       <!--      <ng-container [ngTemplateOutlet]="thumbnailsList" [ngTemplateOutletContext]="{item: item}"></ng-container>-->
@@ -27,7 +27,7 @@
 <!--IMAGE CARDS LIST-->
 <ng-template #imageList let-item="item">
   <ion-card-content class="ion-no-margin ion-no-padding">
-    <img class="image-cover" [src]="item.img"/>
+    <img class="image-cover" [src]="item?.images[0]"/>
     <div class="flex-column space-between flex-auto" [ngStyle]="{'min-height':'15vh'}">
       <ion-row class="category ion-margin ion-row border-bottom">
         <ng-container [ngTemplateOutlet]="category" [ngTemplateOutletContext]="{item: item}"></ng-container>
@@ -63,7 +63,7 @@
 
         <ion-row class="ion-row ion-no-padding ion-no-margin">
           <ion-item class="ion-no-padding ion-no-margin">
-            <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
+            <img class="image-icon ion-padding-end ion-padding-start" src="{{FLATICON_PATH + '/Address-color.svg'}}"/>
             <mx-text class="text" [title]="item.address" [type]="'description'"></mx-text>
           </ion-item>
           <div class="flex-row full-width flex-1">
@@ -85,19 +85,18 @@
 
 <!--DETAILS LIST-->
 <ng-template #details let-item="item">
-  <ion-card-content class="ion-no-margin ion-no-padding">
+  <ion-card-content class="ion-no-margin ion-no-padding full-width">
     <ion-row class="ion-no-margin">
       <ng-container [ngTemplateOutlet]="address" [ngTemplateOutletContext]="{item: item}"></ng-container>
-      <ng-container
-        *ngIf="item.floor"
-        [ngTemplateOutlet]="floor" [ngTemplateOutletContext]="{item: item}"></ng-container>
     </ion-row>
-    <ion-row class="ion-no-margin">
+    <ion-row class="ion-no-margin border-top full-width">
       <ng-container [ngTemplateOutlet]="bedrooms" [ngTemplateOutletContext]="{item: item}"></ng-container>
       <ng-container [ngTemplateOutlet]="bathrooms" [ngTemplateOutletContext]="{item: item}"></ng-container>
       <ng-container [ngTemplateOutlet]="square" [ngTemplateOutletContext]="{item: item}"></ng-container>
+      <ng-container *ngIf="item.floor" [ngTemplateOutlet]="floor"
+                    [ngTemplateOutletContext]="{item: item}"></ng-container>
     </ion-row>
-    <ion-row class="ion-no-margin">
+    <ion-row class="ion-no-margin flex-row full-width border-top nextToSection ion-padding-bottom">
       <ng-container [ngTemplateOutlet]="nextTo" [ngTemplateOutletContext]="{item: item}"></ng-container>
     </ion-row>
   </ion-card-content>
@@ -106,23 +105,24 @@
 
 <!--CATEGORY-->
 <ng-template #category let-item="item">
-  <ion-col>
-    <ion-chip color="primary">
+  <ion-col class="ion-no-padding">
+    <ion-chip color="primary square-chip">
       <mx-text [type]="'description'" [title]="item.category | translate"></mx-text>
     </ion-chip>
   </ion-col>
 </ng-template>
 <!--PRICE-->
 <ng-template #price let-item="item" let-pushEnd="pushEnd">
-  <ion-col class="flex-row ion-justify-content-end" [class.ion-justify-content-end]="pushEnd">
-    <ion-chip color="primary">
+  <ion-col class="flex-row ion-justify-content-end ion-no-padding" [class.ion-justify-content-end]="pushEnd">
+    <ion-chip color="primary square-chip">
       <ion-icon
         class="trending"
         *ngIf="item.priceDown" name="trending-down-outline" color="success" size="medium"></ion-icon>
       <ion-icon class="trending"
                 *ngIf="item.priceUp" name="trending-up-outline" color="danger" size="medium"></ion-icon>
       <ion-text class="price">
-        <mx-text [type]="'description'" [title]="item.price | currency: userSettings.currency : 'symbol': '3.0'"></mx-text>
+        <mx-text [type]="'description'"
+                 [title]="item.price | currency: userSettings.currency : 'symbol': '3.0'"></mx-text>
       </ion-text>
     </ion-chip>
   </ion-col>
@@ -130,38 +130,32 @@
 
 <!--ADDRESS-->
 <ng-template #address let-item="item">
-  <ion-col class="ion-align-items-center flex-row ion-text-nowrap">
-    <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <mx-text class="" [type]="'description'" [title]="item.address"></mx-text>
+  <ion-col
+    class="ion-align-items-center flex-row ion-text-nowrap ion-padding-start ion-align-items-center">
+    <img class="image-icon" src="{{FLATICON_PATH + '/Address.svg'}}"/>
+    <ion-text class="ion-padding-start address">{{item.address}}</ion-text>
   </ion-col>
 </ng-template>
 
 
 <!--RATING-->
+<!--TODO Rating Component-->
 <ng-template #rating let-item="item">
-  <ion-col>
-    <ion-chip color="secondary">
-      <ion-item class="ion-no-padding ion-no-margin">
-        <ion-icon size="small" name="star"></ion-icon>
-        <ion-icon size="small" name="star"></ion-icon>
-        <ion-icon size="small" name="star"></ion-icon>
-        <ion-icon size="small" name="star-half"></ion-icon>
-        <ion-icon size="small" name="star-outline"></ion-icon>
-      </ion-item>
-      <mx-text [type]="'description'"
-               [title]="3.5"></mx-text>
+  <ion-col class="ion-no-padding">
+    <ion-chip color="secondary square-chip">
+      <mx-rating [rating]="item.rating"></mx-rating>
     </ion-chip>
   </ion-col>
 </ng-template>
 
 <!--STATE-->
 <ng-template #state let-item="item">
-  <ion-col class="flex-row ion-justify-content-end">
-    <ion-chip color="primary">
+  <ion-col class="flex-row ion-justify-content-end  ion-no-padding">
+    <ion-chip color="primary" class="square-chip">
       <mx-text [type]="'description'"
                [title]="item.state[0] | translate"></mx-text>
     </ion-chip>
-    <ion-chip color="primary" *ngIf="item.state[1]">
+    <ion-chip color="primary" class="square-chip" *ngIf="item.state[1]">
       <mx-text [type]="'description'"
                [title]="item.state[1] | translate"></mx-text>
     </ion-chip>
@@ -170,9 +164,9 @@
 
 <!--DATE-->
 <ng-template #date let-item="item" let-pushEnd="pushEnd">
-  <ion-col class="flex-row ion-nowrap" [class.ion-justify-content-end]="pushEnd">
-    <ion-chip color="primary" class="ion-nowrap label-nowrap">
-      <ion-icon name="timer"></ion-icon>
+  <ion-col class="flex-row ion-nowrap ion-no-padding" [class.ion-justify-content-end]="pushEnd">
+    <ion-chip color="primary" class="ion-nowrap label-nowrap square-chip">
+      <ion-icon class="image-icon" [src]="FLATICON_PATH + '/Calendar.svg'"></ion-icon>
       <mx-text class="text ion-nowrap" [title]="item.updatedAt | localizedDate" [type]="'description'"></mx-text>
     </ion-chip>
   </ion-col>
@@ -180,49 +174,48 @@
 
 <!--BEDROOMS-->
 <ng-template #bedrooms let-item="item">
-  <ion-col class="flex-row  ion-align-items-center">
-    <ion-icon class="icon" size="small" name="bed-outline"></ion-icon>
-    <mx-text class="text-value" [title]="item.bedroom" [type]="'description'"></mx-text>
-    <mx-text class="text" [type]="'description'" [title]="'BEDROOMS' | translate"></mx-text>
+  <ion-col class="flex-row ion-align-items-cente ion-padding-start">
+    <ion-icon class="image-icon-bedroom" [src]="FLATICON_PATH + '/Bedroom.svg'"></ion-icon>
+    <mx-text class="text-value" [title]="item.bedroom" [type]="'tiny'"></mx-text>
+    <mx-text class="text" [type]="'tiny'" [title]="'BEDROOMS' | translate"></mx-text>
   </ion-col>
 </ng-template>
 
 <!--BATHROOMS-->
 <ng-template #bathrooms let-item="item">
-  <ion-col class="flex-row ion-align-items-center">
-    <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <mx-text class="text-value" [title]="item.bathroom" [type]="'description'"></mx-text>
-    <mx-text class="text" [type]="'description'" [title]="'BATHROOMS' | translate"></mx-text>
+  <ion-col class="flex-row ion-align-items-center ion-padding-start">
+    <ion-icon class="image-icon" [src]="FLATICON_PATH + '/Bathroom.svg'"></ion-icon>
+    <mx-text class="text-value" [title]="item.bathroom" [type]="'tiny'"></mx-text>
+    <mx-text class="text" [type]="'tiny'" [title]="'BATHROOMS' | translate"></mx-text>
   </ion-col>
 </ng-template>
 
 
 <!--FLOOR-->
 <ng-template #floor let-item="item">
-  <ion-col class="flex-row ion-align-items-center">
-    <ion-icon class="icon" size="small" name="apps-outline"></ion-icon>
-    <mx-text class="text-value" [type]="'description'" [title]="item.floor"></mx-text>
-    <mx-text class="text" [type]="'description'" [title]="'FLOOR' | translate"></mx-text>
+  <ion-col class="flex-row ion-align-items-center ion-padding-start">
+    <ion-icon class="image-icon-floor" [src]="FLATICON_PATH + '/Stairs.svg'"></ion-icon>
+    <mx-text class="text-value" [type]="'tiny'" [title]="item.floor"></mx-text>
+    <mx-text class="text" [type]="'tiny'" [title]="'FLOOR' | translate"></mx-text>
   </ion-col>
 </ng-template>
 
 <!--SQUARE-->
 <ng-template #square let-item="item">
   <ion-col class="flex-row ion-align-items-center">
-    <ion-icon class="icon" size="small" name="body-outline"></ion-icon>
-    <mx-text class="text-value" [title]="item.square" [type]="'description'"></mx-text>
-    <mx-text class="text" [type]="'description'" [title]="userSettings?.measurement | translate"></mx-text>
+    <ion-icon class="image-icon-area" [src]="FLATICON_PATH + '/Area.svg'"></ion-icon>
+    <mx-text class="text-value" [title]="item.square" [type]="'tiny'"></mx-text>
+    <mx-text class="text" [type]="'tiny'" [title]="userSettings?.measurement | translate"></mx-text>
   </ion-col>
 </ng-template>
 
 <!--NEXT TO-->
 <ng-template #nextTo let-item="item">
-  <ion-col class="flex-row border-top">
-    <div class="flex-row ion-align-items-center" *ngFor="let nextTo of item.nextTo">
-      <ion-icon class="icon" size="small" color="primary" name="ribbon-outline"></ion-icon>
-      <mx-text [type]="'description'" [title]="nextTo | translate"></mx-text>
-    </div>
-  </ion-col>
+  <div class="flex-row ion-align-items-center nextToItem ion-no-padding" *ngFor="let item of item.nextTo">
+    <ion-icon class="image-nextTo ion-padding-start ion-padding-end"
+              [src]="FLATICON_PATH + '/' + item + '.svg'"></ion-icon>
+    <mx-text class="text-nextTo" [selected]="false" [type]="'tiny'" [title]="item | translate"></mx-text>
+  </div>
 </ng-template>
 
 <!--SLIDING OPTIONS-->

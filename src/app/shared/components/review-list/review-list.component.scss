@@ -1,0 +1,10 @@
+@import "common";
+.review-list-container {
+  height: 350px;
+}
+
+.review-text {
+  font-size: $font-size-tiny;
+  white-space: initial;
+  color: $color-gray-dark;
+}

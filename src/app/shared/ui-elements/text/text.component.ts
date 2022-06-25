@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Color} from '../../enums';
 
 export enum TextType {
+  tiny = 'tiny',
   header = 'header',
   title = 'title',
   button = 'button',
@@ -20,6 +21,7 @@ export enum TextType {
 export class TextComponent implements OnInit {
 
   @Input() title: string;
+  @Input() selected: boolean;
   @Input() type: TextType = TextType.description;
   @Input() color: Color;
 

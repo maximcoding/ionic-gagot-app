@@ -1,6 +1,6 @@
 <ion-item class="field">
-  <ion-label>
-    <mx-text [type]="'sectionTitle'" [title]="'DESCRIPTION' | translate"></mx-text>
+  <ion-label *ngIf="label">
+    <mx-text [type]="'sectionTitle'" [title]="label | translate"></mx-text>
   </ion-label>
   <ion-textarea
     (ionBlur)="onBlurEvent($event)"

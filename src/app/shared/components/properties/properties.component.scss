@@ -17,6 +17,54 @@ cdk-virtual-scroll-viewport {
   padding-top: 60px;
 }
 
+.text-value {
+  padding-left: 6px;
+  padding-right: 6px;
+  //padding-top: 5px;
+}
+
+.image-icon {
+  height: 18px;
+  width: 18px;
+}
+
+.image-icon-area {
+  height: 20px;
+  width: 20px;
+}
+
+.image-icon-bedroom {
+  height: 22px;
+  width: 22px;
+}
+
+.image-icon-floor {
+  height: 16px;
+  width: 16px;
+}
+
+.image-nextTo {
+  height: 22px;
+  width: 22px;
+  padding-right: 6px;
+}
+
+.text-nextTo {
+  padding-left: 1px;
+  padding-top: 8px;
+}
+
+
+.nextToSection {
+
+  padding-top: 4px;
+
+  .nextToItem {
+    padding: 2px;
+    border-radius: 6px;
+  }
+}
+
 .trending {
   font-size: 24px;
 }
@@ -29,11 +77,6 @@ cdk-virtual-scroll-viewport {
 
 .icon {
   padding: 10px;
-}
-
-.text-value {
-  padding-right: 4px;
-  padding-left: 4px;
 }
 
 ion-thumbnail {
@@ -81,9 +124,12 @@ ion-thumbnail {
 }
 
 .address {
-  font-size: $font-size-normal;
-  font-weight: $font-weight-500;
+  font-size: $font-size-tiny;
+  color: $color-gray-dark;
   font-family: $font-family;
+  padding-left: 8px;
+  padding-top: 8px;
+  padding-bottom: 4px;
 }
 
 .price {

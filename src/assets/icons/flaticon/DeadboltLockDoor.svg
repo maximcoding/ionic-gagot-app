@@ -1,0 +1,20 @@
+<svg id="flat"
+     height="20px"
+     width="24px"
+     viewBox="0 0 512 512"
+     xmlns="http://www.w3.org/2000/svg">
+  <path d="m104 24h304v464h-304z" fill="#c78640"/>
+  <g fill="#b1712c">
+    <path d="m136 56h104v184h-104z"/>
+    <path d="m272 56h104v184h-104z"/>
+    <path d="m136 272h104v184h-104z"/>
+    <path d="m272 272h104v184h-104z"/>
+  </g>
+  <circle cx="352" cy="256" fill="#e3a15b" r="24"/>
+  <path d="m192 360h128v96h-128z" fill="#ffc431"/>
+  <path d="m304 328v32h-32v-32a16 16 0 1 0 -32 0v32h-32v-32a48 48 0 0 1 96 0z" fill="#d1e4ff"/>
+  <path d="m272 328h32v16h-32z" fill="#c5dafa"/>
+  <path
+    d="m280 400h-10.165a15.96288 15.96288 0 0 0 -27.66992 0h-10.16508v16h10.165a15.96288 15.96288 0 0 0 27.66992 0h10.16508z"
+    fill="#ffb401"/>
+</svg>

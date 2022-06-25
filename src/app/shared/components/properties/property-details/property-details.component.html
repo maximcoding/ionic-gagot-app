@@ -59,23 +59,36 @@
 
 
 <ng-template #details>
-  <ion-slides *ngIf="selectedPhotosOrVideo === 'PHOTOS'" pager="true" [options]="slideOpts">
-    <ion-slide *ngFor="let photo of property.images">
-      <img src="{{photo}}"/>
-      <!--      <img src="{{property.photoURLs + photo}}" alt="propertyPhoto">-->
-    </ion-slide>
-  </ion-slides>
+  <div>
 
-  <div class="videoPlayerContainer" *ngIf="selectedPhotosOrVideo === 'VIDEO'">
-    <video #player
-           controls
-           playinline preload="auto">
+    <ion-slides *ngIf="selectedPhotosOrVideo === 'PHOTOS'" pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let photo of property.images">
+        <img src="{{photo}}"/>
+        <!--      <img src="{{property.photoURLs + photo}}" alt="propertyPhoto">-->
+      </ion-slide>
+    </ion-slides>
+    <video
+      *ngIf="selectedPhotosOrVideo === 'VIDEO'"
+      class="videoPlayerContainer"
+      height="485"
+      #player
+      controls
+      playinline preload="auto">
       <source
         [src]="property.videoUrl || 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4'"
         type="video/mp4"/>
     </video>
-  </div>
 
+    <ion-fab horizontal="end" vertical="center" slot="fixed">
+      <ion-fab-button fill="clear" color="none" class="fab-button">
+        <ion-icon name="bookmark-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button fill="clear" color="none" class="fab-button">
+        <ion-icon name="share-social-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </div>
   <ion-segment
     value="{{selectedPhotosOrVideo}}"
     scrollable color="secondary" (ionChange)="selectedPhotosOrVideo = $event.detail.value">
@@ -86,272 +99,286 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div class="section">
-    <ion-grid>
-
-      <ion-row class="">
+  <!--  AGREEMENT-->
+  <ion-grid>
+    <!--    CURRENT STATUS-->
+    <ion-row class="ion-padding-start ion-padding-end">
+      <ion-col class="ion-no-padding">
         <ion-item class="full-width ion-no-padding">
-          <ion-col class="ion-no-padding">
-            <ion-item class="full-width ion-no-padding">
-              <ion-label>
-                <mx-text [type]="'sectionTitle'" [title]="'AGREEMENT' | translate"></mx-text>
-              </ion-label>
-            </ion-item>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.state[0] | translate}} {{property.state[1] | translate}}</div>
-          </ion-col>
+          <ion-label>
+            {{'CURRENT_STATUS'| translate}}
+            <!--            <mx-text [type]="'sectionTitle'" [title]="'CURRENT_STATUS' | translate"></mx-text>-->
+          </ion-label>
         </ion-item>
-      </ion-row>
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row>
-              <img src="{{FLATICON_PATH + '/bedroom2.svg'}}"/>
-              <div class="ion-padding-start">{{'BEDROOMS' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.bedroom}}</div>
-          </ion-col>
+      </ion-col>
+      <ion-col class="flex-row ion-justify-content-end">
+        <ion-item>
+          <ion-text class="text-value">{{property.status || '--'}}</ion-text>
         </ion-item>
-      </ion-row>
+      </ion-col>
+    </ion-row>
 
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row>
-              <img src="{{FLATICON_PATH + '/balcony.svg'}}"/>
-              <div class="ion-padding-start">{{'BALCONIES' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.balcony}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row class="flex-row-center">
-              <img src="{{FLATICON_PATH + '/bathroom.svg'}}"/>
-              <div class="ion-padding-start">{{'BATHROOMS' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.bathroom}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row class="flex-row-center">
-              <img src="{{FLATICON_PATH + '/stairs-2.svg'}}"/>
-              <div class="ion-padding-start">{{'FLOOR' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.floor}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row class="flex-row-center">
-              <img src="{{FLATICON_PATH + '/area-2.svg'}}"/>
-              <div class="ion-padding-start">{{'SQUARE_UNITS' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.square}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row class="flex-row-center">
-              <img src="{{FLATICON_PATH + '/offer.svg'}}"/>
-              <div class="ion-padding-start">{{'PRICE' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.price}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row class="flex-row-center">
-              <img src="{{FLATICON_PATH + '/tax.svg'}}"/>
-              <div class="ion-padding-start">{{'ARNONA_PRICE' | translate}}</div>
-            </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.arnona}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-      <ion-row class="ion-margin-bottom">
+    <!--    AGREEMENT-->
+    <ion-row class="ion-padding-start ion-padding-end ion-no-padding">
+      <ion-item class="full-width ion-no-padding">
         <ion-col class="ion-no-padding">
           <ion-item class="full-width ion-no-padding">
             <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'CURRENT_STATUS' | translate"></mx-text>
+              {{'DEAL' | translate}}
             </ion-label>
           </ion-item>
         </ion-col>
         <ion-col class="flex-row ion-justify-content-end">
-          <ion-item>
-            <ion-text>{{property.status || '--'}}</ion-text>
-          </ion-item>
+          <div class="flex-row">{{property.state[0] | translate}}
+            <div *ngIf="property.state[1]">
+              <span class="">&nbsp; & &nbsp;</span>
+              {{property.state[1] | translate}}
+            </div>
+          </div>
         </ion-col>
-      </ion-row>
+      </ion-item>
+    </ion-row>
 
-      <ion-row class="ion-margin-bottom">
-        <ion-col class="ion-no-padding">
-          <ion-item class="full-width ion-no-padding">
-            <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'TITLES.OPEN_DOOR_EVENTS' | translate"></mx-text>
-            </ion-label>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+  </ion-grid>
 
-      <ion-list class="open-door-events-list ion-padding-bottom full-width">
-        <ion-button fill="clear"
-                    expand="block"
-                    class="full-width ion-no-padding ion-no-margin" *ngFor="let openDoor of openDoors">
-          <ion-row class="full-width flex-row ion-no-padding ion-no-margin">
-            <ion-col size="3" class="ion-text-nowrap ion-padding-bottom ion-padding-top ion-no-margin">
-              <div class="padding-top-enroll ion-no-padding ion-no-margin">{{openDoor.day}}</div>
-            </ion-col>
-            <ion-col size="6" class="ion-text-nowrap ion-padding-bottom ion-padding-top ion-no-margin">
-              <div class="padding-top-enroll ion-no-padding ion-no-margin">{{openDoor.date | date:'short'}}</div>
-            </ion-col>
-            <ion-col size="3" class="ion-text-nowrap ion-padding-bottom ion-padding-top ion-no-margin">
-              <button class="enroll-button">{{'ENROLL' | translate}}</button>
+  <ion-accordion-group multiple="true" [value]="['first', 'third']">
+    <!--DETAILS-->
+    <ion-accordion value="first" [readonly]="true">
+      <ion-item slot="header" color="light">
+        <ion-label>
+          {{'DETAILS' | translate}}
+        </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-grid>
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row>
+                  <img src="{{FLATICON_PATH + '/Bedroom.svg'}}"/>
+                  <div class="ion-padding-start">{{'BEDROOMS' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.bedroom}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row>
+                  <img src="{{FLATICON_PATH + '/Balcony.svg'}}"/>
+                  <div class="ion-padding-start">{{'BALCONIES' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.balcony || '--'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Bathroom.svg'}}"/>
+                  <div class="ion-padding-start">{{'BATHROOMS' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.bathroom || '--'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Stairs.svg'}}"/>
+                  <div class="ion-padding-start">{{'FLOOR' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.floor || '--'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Area.svg'}}"/>
+                  <div class="ion-padding-start">{{'SQUARE_UNITS' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.square}} {{'METERS' | translate}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Offer.svg'}}"/>
+                  <div class="ion-padding-start">{{'PRICE' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.price | currency: userCurrency :'symbol':'4.0'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Tax.svg'}}"/>
+                  <div class="ion-padding-start">{{'ARNONA_PRICE' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.arnona | currency: userCurrency :'symbol':'4.0'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+          <!--CONTACTS-->
+          <ion-row class="">
+            <ion-col class="ion-no-padding">
+              <ion-item class="full-width ion-no-padding">
+                <ion-label>
+                  <mx-text [type]="'sectionTitle'" [title]="'CONTACTS' | translate"></mx-text>
+                </ion-label>
+              </ion-item>
             </ion-col>
           </ion-row>
-          <!--                <ion-radio slot="end"-->
-          <!--                           type="success"-->
-          <!--                           color="primary"-->
-          <!--                           value="{{openDoor.date}}">-->
-          <!--                </ion-radio>-->
-        </ion-button>
-      </ion-list>
+          <!--MOBILE_PHONE-->
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Phone-call.svg'}}"/>
+                  <div class="ion-padding-start">{{'MOBILE_PHONE' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.phone || '--'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+          <!--  PUBLISHED BY-->
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Publisher.svg'}}"/>
+                  <div class="ion-padding-start">{{'PUBLISHED_BY' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property?.owner?.role || '--'}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+          <!--  PUBLISHED FROM DATE-->
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col size="8">
+                <ion-row class="flex-row-center flex-row">
+                  <img src="{{FLATICON_PATH + '/Calendar.svg'}}"/>
+                  <div class="ion-padding-start">{{'PUBLISHED_FROM_DATE' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end">
+                <div class="text-value">{{property.createdAt | localizedDate}}</div>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+          <!--    ENTRY_DAY -->
+          <ion-row class="" *ngIf="property.state.includes(PropertyState.Renting)">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col size="8">
+                <ion-row class="flex-row-center flex-row">
+                  <img src="{{FLATICON_PATH + '/Calendar-mark.svg'}}"/>
+                  <div class="ion-padding-start">{{'ENTRY_DAY' | translate}}</div>
+                </ion-row>
+              </ion-col>
+              <ion-col class="flex-row ion-justify-content-end ion-no-padding">
+                <ion-col class="flex-row ion-justify-content-end">
+                  <div class="text-value">{{property.entryDay | localizedDate}}</div>
+                </ion-col>
+              </ion-col>
+            </ion-item>
+          </ion-row>
 
+          <!--VOICE MESSAGE-->
+          <ion-row class="">
+            <ion-item class="full-width ion-no-padding">
+              <ion-col>
+                <ion-row class="flex-row-center">
+                  <img src="{{FLATICON_PATH + '/Voice-message.svg'}}"/>
+                  <div class="ion-padding-start">{{'VOICE_MESSAGE' | translate}}</div>
+                </ion-row>
+              </ion-col>
+            </ion-item>
+          </ion-row>
+          <ion-row class="full-width">
+            <mx-audio-track class="full-width" [audioFile]="property.audio"></mx-audio-track>
+          </ion-row>
 
-      <ion-row class="ion-margin-bottom">
-        <ion-col class="ion-no-padding">
-          <ion-item class="full-width ion-no-padding">
-            <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'PUBLISHED_FROM_DATE' | translate"></mx-text>
-            </ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col class="flex-row ion-justify-content-end ion-no-padding">
-          <ion-item>
-            <ion-text>{{property.createdAt | localizedDate}}</ion-text>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-      <ion-row class="ion-margin-bottom">
-        <ion-col class="ion-no-padding">
-          <ion-item class="full-width ion-no-padding">
-            <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'PUBLISHED_BY' | translate"></mx-text>
-            </ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col class="flex-row ion-justify-content-end">
-          <ion-item>
-            <ion-text>{{property?.owner?.role || '--'}}</ion-text>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-
-      <ion-row class="ion-margin-bottom">
-        <ion-col size="12" class="ion-no-padding">
-          <ion-item class="full-width ion-no-padding">
-            <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'VIDEO_RECORD' | translate"></mx-text>
-            </ion-label>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row class="full-width">
-        <mx-audio-track [audioFile]="property.audio"></mx-audio-track>
-      </ion-row>
-
-
-      <ion-row class="ion-margin-bottom">
-        <ion-col class="ion-no-padding">
-          <ion-item class="full-width ion-no-padding">
-            <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'CONTACTS' | translate"></mx-text>
-            </ion-label>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-      <ion-row class="">
-        <ion-item class="full-width ion-no-padding">
-          <ion-col>
-            <ion-row>
-              <img src="{{ICON_PATH + 'phone-sm.svg'}}"/>
-              <div class="ion-padding-start">{{'MOBILE_PHONE' | translate}}</div>
+        </ion-grid>
+      </div>
+    </ion-accordion>
+    <!--    OPEN DOOR EVENTS-->
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>
+          {{'TITLES.OPEN_DOOR_EVENTS' | translate}}
+        </ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list class="open-door-events-list ion-padding-bottom full-width">
+          <ion-button fill="clear"
+                      expand="block"
+                      class="full-width ion-no-padding ion-no-margin" *ngFor="let openDoor of openDoors">
+            <ion-row class="full-width flex-row ion-no-padding ion-no-margin">
+              <ion-col size="3" class="ion-text-nowrap ion-padding-bottom ion-padding-top ion-no-margin">
+                <div class="padding-top-enroll ion-no-padding ion-no-margin">{{openDoor.day}}</div>
+              </ion-col>
+              <ion-col size="6" class="ion-text-nowrap ion-padding-bottom ion-padding-top ion-no-margin">
+                <div class="padding-top-enroll ion-no-padding ion-no-margin">{{openDoor.date | date:'short'}}</div>
+              </ion-col>
+              <ion-col size="3" class="ion-text-nowrap ion-padding-bottom ion-padding-top ion-no-margin">
+                <button class="enroll-button">{{'ENROLL' | translate}}</button>
+              </ion-col>
             </ion-row>
-          </ion-col>
-          <ion-col class="flex-row ion-justify-content-end">
-            <div>{{property.phone || '--'}}</div>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-
-      <ion-row class="ion-margin-bottom">
-        <ion-col class="ion-no-padding">
-          <ion-item class="full-width ion-no-padding">
-            <ion-label>
-              <mx-text [type]="'sectionTitle'" [title]="'REVIEWS' | translate"></mx-text>
-            </ion-label>
-          </ion-item>
-        </ion-col>
-        <ion-col class="flex-row ion-justify-content-end ion-no-padding">
-          <ion-item>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-      <!--      <ion-row>-->
-      <!--        <ion-col>-->
-      <!--          <ion-row class="flex-1">-->
-      <!--            <mx-text [type]="'sectionTitle'" [title]="'AGREEMENT' | translate"></mx-text>-->
-      <!--          </ion-row>-->
-      <!--        </ion-col>-->
-      <!---->
-      <!--        <ion-col>-->
-      <!--          <ion-row>-->
-      <!--            <mx-text [type]="'description'" [title]="property.state[0] | translate"></mx-text>-->
-      <!--            <div *ngIf="property.state[1]">&</div>-->
-      <!--            <mx-text [type]="'description'" [title]="property.state[1] | translate"></mx-text>-->
-      <!--          </ion-row>-->
-      <!--        </ion-col>-->
-      <!--      </ion-row>-->
-    </ion-grid>
-  </div>
+            <!--                <ion-radio slot="end"-->
+            <!--                           type="success"-->
+            <!--                           color="primary"-->
+            <!--                           value="{{openDoor.date}}">-->
+            <!--                </ion-radio>-->
+          </ion-button>
+        </ion-list>
+      </div>
+    </ion-accordion>
+    <!--    REVIEWS-->
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>{{'REVIEWS' | translate}}</ion-label>
+      </ion-item>
+      <div class="ion-padding review-list" slot="content">
+        <mx-review-list [data]="reviews"
+                        (onClick)="clickedAddReview($event)">
+        </mx-review-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 
 </ng-template>
 
@@ -428,6 +455,44 @@
 </ng-template>
 
 <ng-template #agreement>
+
+  <!--    AGREEMENT-->
+  <ion-row class="ion-padding-start ion-padding-end">
+    <ion-item class="full-width ion-no-padding">
+      <ion-col class="ion-no-padding">
+        <ion-item class="full-width ion-no-padding">
+          <ion-label>
+            {{'DEAL' | translate}}
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col class="flex-row ion-justify-content-end">
+        <div class="flex-row">{{property.state[0] | translate}}
+          <div *ngIf="property.state[1]">
+            <span class="">&nbsp; & &nbsp;</span>
+            {{property.state[1] | translate}}
+          </div>
+        </div>
+      </ion-col>
+    </ion-item>
+  </ion-row>
+
+  <!--    ENTRY_DAY -->
+  <ion-row class="ion-padding-start ion-padding-end" *ngIf="property.state.includes(PropertyState.Renting)">
+    <ion-col class="ion-no-padding">
+      <ion-item class="full-width ion-no-padding">
+        <ion-label>
+          {{'ENTRY_DAY' | translate}}
+        </ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col class="flex-row ion-justify-content-end ion-no-padding">
+      <ion-item>
+        <ion-text>{{property.entryDay | localizedDate}}</ion-text>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
   <!--TODO create component-->
   <div class="text-button box-shadow">
     <div class="agreementDiv">
@@ -436,7 +501,6 @@
     <div class="agreementDiv">
       <mx-text [type]="'description'" [title]="'LOREM' | translate">
       </mx-text>
-      <ion-button class="button-shadow">{{'ADD' | translate}}</ion-button>
     </div>
   </div>
 
@@ -448,7 +512,6 @@
     <div class="agreementDiv">
       <mx-text [type]="'description'" [title]="'LOREM' | translate">
       </mx-text>
-      <ion-button class="button-shadow">{{'ADD' | translate}}</ion-button>
     </div>
   </div>
 
@@ -460,7 +523,6 @@
     <div class="agreementDiv">
       <mx-text [type]="'description'" [title]="'LOREM' | translate">
       </mx-text>
-      <ion-button class="button-shadow">{{'ADD' | translate}}</ion-button>
     </div>
   </div>
 

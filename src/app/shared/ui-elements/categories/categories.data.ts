@@ -1,47 +1,43 @@
 import {ICategory} from './categories.component';
 
 export const categories: ICategory[] = [{
-  icon: 'home-outline',
+  icon: 'Apartment',
   title: 'APARTMENT',
 }, {
-  icon: 'home-outline',
+  icon: 'Land',
   title: 'LAND',
 }, {
-  icon: 'home-outline',
+  icon: 'Penthouse',
   title: 'PENTHOUSE',
 }, {
-  icon: 'home-outline',
-  title: 'CONDO',
+  icon: 'Condo',
+  title: 'Condo',
 }, {
-  icon: 'home-outline',
+  icon: 'House',
   title: 'HOUSE',
 },
   {
-    icon: 'home-outline',
+    icon: 'Clinic',
     title: 'CLINIC',
   },
   {
-    icon: 'home-outline',
+    icon: 'Basement',
     title: 'BASEMENT',
   },
   {
-    icon: 'home-outline',
+    icon: 'Office',
     title: 'OFFICE',
   },
   {
-    icon: 'home-outline',
+    icon: 'Duplex',
     title: 'DUPLEX_APARTMENT',
   },
   {
-    icon: 'home-outline',
-    title: 'DUPLEX_HOUSE',
-  },
-  {
-    icon: 'home-outline',
+    icon: 'Town-House',
     title: 'TOWN_HOUSE',
   },
   {
-    icon: 'home-outline',
+    icon: 'Community-Center',
     title: 'COMMUNITY_CENTER',
   }
 ];

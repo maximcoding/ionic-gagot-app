@@ -1,7 +1,7 @@
-import {Component, OnInit, QueryList, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subscriber} from 'rxjs';
-import {IProperty} from '../../../interfaces/property.interface';
+import {IProperty, IPropertyPreview} from '../../../interfaces/property.interface';
 import {CategoryEnum} from '../../../enums/categoryEnum';
 import {NextToEnum} from '../../../enums/nexto.num';
 import {FLATICON_PATH, ICON_PATH, IMAGE_PATH} from '../../../../../global';
@@ -11,6 +11,7 @@ import {KitchenEnum} from '../../../enums/kitchen.enum';
 import {CommonAmenitiesEnum, SafetyAmenitiesEnum} from '../../../enums/amenities.enum';
 import {FacilitiesEnum} from '../../../enums/facilities.enum';
 import {BathEnum} from '../../../enums/bath.enum';
+import {CurrencyEnum} from '../../../enums/currency.enum';
 
 enum PropertyDetailsTabs {
   DETAILS = "DETAILS",
@@ -26,6 +27,7 @@ enum PropertyDetailsTabs {
 })
 export class PropertyDetailsComponent implements OnInit {
 
+  @ViewChild('scrollable') private scrollable: ElementRef;
 
   @ViewChild('player') videoPlayers: QueryList<any>;
   currentPlaying = null;
@@ -42,6 +44,31 @@ export class PropertyDetailsComponent implements OnInit {
   public safetyAmenitiesList = Object.values(SafetyAmenitiesEnum);
   public facilitiesList = Object.values(FacilitiesEnum);
   public additionalBath = Object.values(BathEnum);
+  public reviewInputText = ''
+  public PropertyState = PropertyState;
+  public userCurrency = CurrencyEnum.ILS;
+  public reviews = [{
+    name: 'Sharon',
+    rating: 5,
+    date: '2h ago',
+    text: 'I found this property first, i had best experience with it service. Such a kind owner i\'ve\n' +
+      'never met before. What a please to do a business with him.'
+  }, {
+    name: 'Hagay',
+    rating: 4.5,
+    date: '1d ago',
+    text: 'Its ok'
+  }, {
+    name: 'Alex',
+    rating: 3,
+    date: '1 week ago',
+    text: 'Super useful'
+  }, {
+    name: 'Edva',
+    rating: 1.5,
+    date: '2 week ago',
+    text: 'No refund , bad experience'
+  }];
   public property: IProperty = {
     authorID: 0,
     id: null,
@@ -61,12 +88,13 @@ export class PropertyDetailsComponent implements OnInit {
     place: '',
     price: 12220202,
     arnona: 1200,
+    entryDay: new Date(),
     updatedAt: new Date(),
     createdAt: new Date(2021),
     state: [PropertyState.Selling, PropertyState.Renting],
     title: '',
     type: undefined,
-    images: ['https://picsum.photos/400/200', 'https://picsum.photos/400/200', 'https://picsum.photos/400/200'],
+    images: ['https://picsum.photos/400/500', 'https://picsum.photos/400/500', 'https://picsum.photos/400/500'],
     videoURLs: '',
     bathroom: 3,
     bedroom: 2,
@@ -179,6 +207,13 @@ export class PropertyDetailsComponent implements OnInit {
 
   public shareClicked() {
 
+  }
+
+
+  public clickedAddReview(value: string) {
+    if (value) {
+      this.reviews.push({text: value, name: 'Me', date: '1 sec ago', rating: 3})
+    }
   }
 
 }

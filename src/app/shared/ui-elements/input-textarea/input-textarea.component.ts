@@ -26,6 +26,7 @@ export class InputTextAreaComponent implements OnInit {
 
 
   @Input() value: string;
+  @Input() label: string;
   @Input() readonly: boolean;
   @Input() disabled: boolean;
   @Input() icon: string;
@@ -52,7 +53,6 @@ export class InputTextAreaComponent implements OnInit {
   }
 
   public onChangeEvent($event) {
-    this.value = $event;
     this.onChange.emit($event);
   }
 
@@ -65,7 +65,6 @@ export class InputTextAreaComponent implements OnInit {
   }
 
   public onInputEvent($event) {
-    this.value = $event;
     // this.onInput.emit($event);
   }
 

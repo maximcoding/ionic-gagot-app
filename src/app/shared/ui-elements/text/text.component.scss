@@ -2,7 +2,11 @@
 
 .text {
   font-family: $font-family;
-  color: var(--ion-color-primary);
+  color: $color-gray-dark;
+
+  &.selected {
+    color: $color-white;
+  }
 
   &.header {
     font-weight: $font-weight-600;
@@ -17,6 +21,10 @@
   &.title {
     font-size: $font-size-18;
     font-weight: $font-weight-600;
+  }
+
+  &.tiny {
+    font-size: $font-size-tiny;
   }
 
   &.description {

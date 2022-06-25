@@ -3,6 +3,7 @@ import {categories} from './categories.data';
 import {Color} from '../../enums';
 import {TextType} from '../text/text.component';
 import {CategoryEnum} from '../../enums/categoryEnum';
+import {FLATICON_PATH} from '../../../../global';
 
 export interface ICategory {
   title?: string;
@@ -26,6 +27,7 @@ export class CategoriesComponent implements OnInit {
   @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
   public Color = Color;
   public TextType = TextType;
+  public FLATICON_PATH = FLATICON_PATH;
 
   constructor() {
   }

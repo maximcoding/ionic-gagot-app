@@ -5,7 +5,6 @@ export enum CommonAmenitiesEnum {
   Fireplace = 'Fireplace',
   AirConditioning = 'AirConditioning',
   FastFiberInternet = 'FastFiberInternet',
-  SmartHomeControl = 'SmartHomeControl',
   Accessibility = 'Accessibility',
   SmartControl = 'SmartControl',
   Wifi = 'Wifi'

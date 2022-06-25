@@ -47,7 +47,7 @@ const images = [
 ];
 
 const getImgSrc = () => {
-  const src = 'https://dummyimage.com/600x400/${Math.round( Math.random() * 99999)}/fff.png';
+  const src = 'https://picsum.photos/400/300';
   rotateImg++;
   if (rotateImg === images.length) {
     rotateImg = 0;
